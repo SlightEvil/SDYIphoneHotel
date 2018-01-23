@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  SDYIphoneHotel
+//
+//  Created by admin on 2017/12/25.
+//  Copyright © 2017年 SanDaoyi. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ZQDefinesHeader.h"
+#import "AppContext.h"
+#import "ZQUserDefault.h"
+#import "ZQViewModel.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#endif /* PrefixHeader_pch */

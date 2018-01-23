@@ -7,25 +7,206 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8422D2DE1FF28753009C8E03 /* ZQLoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8422D2DD1FF28753009C8E03 /* ZQLoginUser.m */; };
+		8422D2E21FF28911009C8E03 /* ZQCostomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8422D2E11FF28911009C8E03 /* ZQCostomView.m */; };
 		842E9DDA1FF1169E00DC4211 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9DD91FF1169E00DC4211 /* AppDelegate.m */; };
-		842E9DDD1FF1169E00DC4211 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9DDC1FF1169E00DC4211 /* ViewController.m */; };
 		842E9DE01FF1169E00DC4211 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E9DDE1FF1169E00DC4211 /* Main.storyboard */; };
 		842E9DE21FF1169E00DC4211 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842E9DE11FF1169E00DC4211 /* Assets.xcassets */; };
 		842E9DE51FF1169E00DC4211 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E9DE31FF1169E00DC4211 /* LaunchScreen.storyboard */; };
 		842E9DE81FF1169E00DC4211 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9DE71FF1169E00DC4211 /* main.m */; };
+		842E9DF71FF1188200DC4211 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9DF61FF1188200DC4211 /* AppContext.m */; };
+		842E9E061FF1199300DC4211 /* ZQBaseNavCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E051FF1199300DC4211 /* ZQBaseNavCon.m */; };
+		842E9E091FF119AE00DC4211 /* ZQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E081FF119AE00DC4211 /* ZQBaseViewController.m */; };
+		842E9E0C1FF119CF00DC4211 /* ZQHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E0B1FF119CF00DC4211 /* ZQHomeVC.m */; };
+		842E9E121FF119EF00DC4211 /* ZQMyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E111FF119EF00DC4211 /* ZQMyOrderVC.m */; };
+		842E9E151FF11A0500DC4211 /* ZQPersonalCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E141FF11A0500DC4211 /* ZQPersonalCenterVC.m */; };
+		842E9E1F1FF12E9400DC4211 /* ZQHelperFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E1E1FF12E9300DC4211 /* ZQHelperFunction.m */; };
+		842E9E241FF1355100DC4211 /* UIImage+Cagegory.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E231FF1355100DC4211 /* UIImage+Cagegory.m */; };
+		842E9E2B1FF135AB00DC4211 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E261FF135AA00DC4211 /* UIView+Category.m */; };
+		842E9E2C1FF135AB00DC4211 /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E281FF135AA00DC4211 /* NSObject+Category.m */; };
+		842E9E2D1FF135AB00DC4211 /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E9E2A1FF135AB00DC4211 /* UIViewController+Category.m */; };
+		843725E32015BA8B00E23517 /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843725DD2015BA8B00E23517 /* ZYInputAlertView.xib */; };
+		843725E42015BA8B00E23517 /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843725DE2015BA8B00E23517 /* ZYInputAlertView.m */; };
+		843725E52015BA8B00E23517 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 843725E02015BA8B00E23517 /* UITextView+Placeholder.m */; };
+		844A85FD2008312F0004B0BF /* ZQQuantityTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A85FC2008312F0004B0BF /* ZQQuantityTextField.m */; };
+		844A8600200838BD0004B0BF /* ZQBaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A85FF200838BD0004B0BF /* ZQBaseTextField.m */; };
+		844A8629200AE27C0004B0BF /* ZQProductDetailV.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A8628200AE27C0004B0BF /* ZQProductDetailV.m */; };
+		844A862C200AF10E0004B0BF /* ZQProductDetailAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A862B200AF10E0004B0BF /* ZQProductDetailAttributeCell.m */; };
+		844A8632200B36080004B0BF /* ZQProductShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A8631200B36080004B0BF /* ZQProductShopModel.m */; };
+		844A8635200B361A0004B0BF /* ZQProductSkusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A8634200B361A0004B0BF /* ZQProductSkusModel.m */; };
+		844A8638200B36CD0004B0BF /* ZQProductAttributeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A8637200B36CD0004B0BF /* ZQProductAttributeModel.m */; };
+		844A863B200B3B6A0004B0BF /* ZQProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A863A200B3B6A0004B0BF /* ZQProductModel.m */; };
+		844A863E200B3D2B0004B0BF /* ZQAddNewProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A863D200B3D2B0004B0BF /* ZQAddNewProductModel.m */; };
+		844A8642200C977E0004B0BF /* ZQProductCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A8641200C977E0004B0BF /* ZQProductCategoryModel.m */; };
+		844A8645200D84C60004B0BF /* ZQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A8644200D84C60004B0BF /* ZQViewModel.m */; };
+		844A8648200DCE130004B0BF /* ZQShopCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A8647200DCE130004B0BF /* ZQShopCartCell.m */; };
+		8452C267200F3D8C00D0AAE7 /* ZQMoneyCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C266200F3D8C00D0AAE7 /* ZQMoneyCenterVC.m */; };
+		8452C26B20102E6B00D0AAE7 /* ZQAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C26A20102E6B00D0AAE7 /* ZQAccountModel.m */; };
+		8452C26E20102E7900D0AAE7 /* ZQAccountLogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C26D20102E7900D0AAE7 /* ZQAccountLogModel.m */; };
+		8452C2722010373900D0AAE7 /* ZQAccountLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C2702010373900D0AAE7 /* ZQAccountLogCell.m */; };
+		8452C2732010373900D0AAE7 /* ZQAccountLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8452C2712010373900D0AAE7 /* ZQAccountLogCell.xib */; };
+		8452C2772010940100D0AAE7 /* ZQProductCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C2752010940100D0AAE7 /* ZQProductCategoryCell.m */; };
+		8452C2782010940100D0AAE7 /* ZQProductCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8452C2762010940100D0AAE7 /* ZQProductCategoryCell.xib */; };
+		8452C2A22011D0E100D0AAE7 /* ZQOrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C2A12011D0E100D0AAE7 /* ZQOrderListCell.m */; };
+		8452C2B52012C0C600D0AAE7 /* ZQOrderDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C2B42012C0C600D0AAE7 /* ZQOrderDetailHeader.m */; };
+		8452C2B82012C0D500D0AAE7 /* ZQOrderDetailFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C2B72012C0D500D0AAE7 /* ZQOrderDetailFooter.m */; };
+		8452C2BC2012DA0400D0AAE7 /* ZQOrderDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C2BB2012DA0400D0AAE7 /* ZQOrderDetailView.m */; };
+		8452C2C0201314AD00D0AAE7 /* ZQOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C2BE201314AC00D0AAE7 /* ZQOrderDetailCell.m */; };
+		8452C2C1201314AD00D0AAE7 /* ZQOrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8452C2BF201314AD00D0AAE7 /* ZQOrderDetailCell.xib */; };
+		8452C2C420132E0500D0AAE7 /* ZQOrderDetailTableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C2C320132E0500D0AAE7 /* ZQOrderDetailTableFooter.m */; };
+		8452C31E2015857200D0AAE7 /* ZQShopCartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8452C31D2015857200D0AAE7 /* ZQShopCartHeaderView.m */; };
+		84A2EA7C2004689500C835CF /* ZQShoppingCartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EA7B2004689500C835CF /* ZQShoppingCartVC.m */; };
+		84A2EA8020046BE600C835CF /* ZQProductListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EA7F20046BE600C835CF /* ZQProductListVC.m */; };
+		84A2EA8420046E8200C835CF /* ZQNetWorkServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EA8320046E8200C835CF /* ZQNetWorkServices.m */; };
+		84A2EA872004A90500C835CF /* ZQProductCategoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EA862004A90500C835CF /* ZQProductCategoryVC.m */; };
+		84A2EA8B2004B3FD00C835CF /* ZQScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EA8A2004B3FD00C835CF /* ZQScrollView.m */; };
+		84A2EA902005A3A100C835CF /* ZQHomeMyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EA8E2005A3A100C835CF /* ZQHomeMyOrderCell.m */; };
+		84A2EA912005A3A100C835CF /* ZQHomeMyOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2EA8F2005A3A100C835CF /* ZQHomeMyOrderCell.xib */; };
+		84A2EA982005F44400C835CF /* ZQMyOrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EA972005F44400C835CF /* ZQMyOrderListModel.m */; };
+		84A2EA9F2006016B00C835CF /* ZQProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EA9E2006016B00C835CF /* ZQProductDetailModel.m */; };
+		84A2EAA3200609E800C835CF /* ZQProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EAA1200609E800C835CF /* ZQProductListCell.m */; };
+		84A2EAA4200609E800C835CF /* ZQProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2EAA2200609E800C835CF /* ZQProductListCell.xib */; };
+		84A2EAAE2006F51E00C835CF /* ZQTabbarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EAAD2006F51E00C835CF /* ZQTabbarModel.m */; };
+		84A2EAB12006FB2800C835CF /* ZQLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EAB02006FB2800C835CF /* ZQLoginVC.m */; };
+		84A2EAB82006FC6300C835CF /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EAB72006FC6300C835CF /* UIButton+Category.m */; };
+		84A2EABC200708B300C835CF /* ZQUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EABB200708B300C835CF /* ZQUserDefault.m */; };
+		84A2EABF20074DF000C835CF /* ZQProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EABE20074DF000C835CF /* ZQProductDetailView.m */; };
+		84A2EAC320074E6D00C835CF /* ZQProductDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2EAC220074E6D00C835CF /* ZQProductDetailVC.m */; };
+		86B429DA4EFF3FA10CE12C6C /* libPods-SDYIphoneHotel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DB38C8876CDFA999D3C2E2 /* libPods-SDYIphoneHotel.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		541B5BFD548906236A42AFA2 /* Pods-SDYIphoneHotel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDYIphoneHotel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDYIphoneHotel/Pods-SDYIphoneHotel.debug.xcconfig"; sourceTree = "<group>"; };
+		8422D2DC1FF28753009C8E03 /* ZQLoginUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQLoginUser.h; sourceTree = "<group>"; };
+		8422D2DD1FF28753009C8E03 /* ZQLoginUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQLoginUser.m; sourceTree = "<group>"; };
+		8422D2E01FF28911009C8E03 /* ZQCostomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQCostomView.h; sourceTree = "<group>"; };
+		8422D2E11FF28911009C8E03 /* ZQCostomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQCostomView.m; sourceTree = "<group>"; };
 		842E9DD51FF1169E00DC4211 /* SDYIphoneHotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDYIphoneHotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842E9DD81FF1169E00DC4211 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		842E9DD91FF1169E00DC4211 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		842E9DDB1FF1169E00DC4211 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		842E9DDC1FF1169E00DC4211 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		842E9DDF1FF1169E00DC4211 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		842E9DE11FF1169E00DC4211 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		842E9DE41FF1169E00DC4211 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		842E9DE61FF1169E00DC4211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842E9DE71FF1169E00DC4211 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		842E9DF51FF1188200DC4211 /* AppContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppContext.h; sourceTree = "<group>"; };
+		842E9DF61FF1188200DC4211 /* AppContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppContext.m; sourceTree = "<group>"; };
+		842E9E041FF1199300DC4211 /* ZQBaseNavCon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQBaseNavCon.h; sourceTree = "<group>"; };
+		842E9E051FF1199300DC4211 /* ZQBaseNavCon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQBaseNavCon.m; sourceTree = "<group>"; };
+		842E9E071FF119AE00DC4211 /* ZQBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQBaseViewController.h; sourceTree = "<group>"; };
+		842E9E081FF119AE00DC4211 /* ZQBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQBaseViewController.m; sourceTree = "<group>"; };
+		842E9E0A1FF119CF00DC4211 /* ZQHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQHomeVC.h; sourceTree = "<group>"; };
+		842E9E0B1FF119CF00DC4211 /* ZQHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQHomeVC.m; sourceTree = "<group>"; };
+		842E9E101FF119EF00DC4211 /* ZQMyOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQMyOrderVC.h; sourceTree = "<group>"; };
+		842E9E111FF119EF00DC4211 /* ZQMyOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQMyOrderVC.m; sourceTree = "<group>"; };
+		842E9E131FF11A0500DC4211 /* ZQPersonalCenterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQPersonalCenterVC.h; sourceTree = "<group>"; };
+		842E9E141FF11A0500DC4211 /* ZQPersonalCenterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQPersonalCenterVC.m; sourceTree = "<group>"; };
+		842E9E161FF11A7F00DC4211 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		842E9E191FF12D6F00DC4211 /* ZQDefinesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQDefinesHeader.h; sourceTree = "<group>"; };
+		842E9E1A1FF12DD500DC4211 /* ZQSettingDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQSettingDefines.h; sourceTree = "<group>"; };
+		842E9E1B1FF12E0E00DC4211 /* ZQNotificationNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQNotificationNames.h; sourceTree = "<group>"; };
+		842E9E1C1FF12E4300DC4211 /* ZQHelperFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQHelperFunction.h; sourceTree = "<group>"; };
+		842E9E1E1FF12E9300DC4211 /* ZQHelperFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQHelperFunction.m; sourceTree = "<group>"; };
+		842E9E221FF1355100DC4211 /* UIImage+Cagegory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cagegory.h"; sourceTree = "<group>"; };
+		842E9E231FF1355100DC4211 /* UIImage+Cagegory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Cagegory.m"; sourceTree = "<group>"; };
+		842E9E251FF135A900DC4211 /* UIViewController+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Category.h"; sourceTree = "<group>"; };
+		842E9E261FF135AA00DC4211 /* UIView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
+		842E9E271FF135AA00DC4211 /* NSObject+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Category.h"; sourceTree = "<group>"; };
+		842E9E281FF135AA00DC4211 /* NSObject+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Category.m"; sourceTree = "<group>"; };
+		842E9E291FF135AA00DC4211 /* UIView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
+		842E9E2A1FF135AB00DC4211 /* UIViewController+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
+		843725DD2015BA8B00E23517 /* ZYInputAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYInputAlertView.xib; sourceTree = "<group>"; };
+		843725DE2015BA8B00E23517 /* ZYInputAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYInputAlertView.m; sourceTree = "<group>"; };
+		843725E02015BA8B00E23517 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		843725E12015BA8B00E23517 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		843725E22015BA8B00E23517 /* ZYInputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYInputAlertView.h; sourceTree = "<group>"; };
+		844A85FB2008312F0004B0BF /* ZQQuantityTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQQuantityTextField.h; sourceTree = "<group>"; };
+		844A85FC2008312F0004B0BF /* ZQQuantityTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQQuantityTextField.m; sourceTree = "<group>"; };
+		844A85FE200838BD0004B0BF /* ZQBaseTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQBaseTextField.h; sourceTree = "<group>"; };
+		844A85FF200838BD0004B0BF /* ZQBaseTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQBaseTextField.m; sourceTree = "<group>"; };
+		844A8627200AE27C0004B0BF /* ZQProductDetailV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductDetailV.h; sourceTree = "<group>"; };
+		844A8628200AE27C0004B0BF /* ZQProductDetailV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductDetailV.m; sourceTree = "<group>"; };
+		844A862A200AF10E0004B0BF /* ZQProductDetailAttributeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductDetailAttributeCell.h; sourceTree = "<group>"; };
+		844A862B200AF10E0004B0BF /* ZQProductDetailAttributeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductDetailAttributeCell.m; sourceTree = "<group>"; };
+		844A8630200B36080004B0BF /* ZQProductShopModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductShopModel.h; sourceTree = "<group>"; };
+		844A8631200B36080004B0BF /* ZQProductShopModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductShopModel.m; sourceTree = "<group>"; };
+		844A8633200B361A0004B0BF /* ZQProductSkusModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductSkusModel.h; sourceTree = "<group>"; };
+		844A8634200B361A0004B0BF /* ZQProductSkusModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductSkusModel.m; sourceTree = "<group>"; };
+		844A8636200B36CD0004B0BF /* ZQProductAttributeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductAttributeModel.h; sourceTree = "<group>"; };
+		844A8637200B36CD0004B0BF /* ZQProductAttributeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductAttributeModel.m; sourceTree = "<group>"; };
+		844A8639200B3B6A0004B0BF /* ZQProductModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductModel.h; sourceTree = "<group>"; };
+		844A863A200B3B6A0004B0BF /* ZQProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductModel.m; sourceTree = "<group>"; };
+		844A863C200B3D2B0004B0BF /* ZQAddNewProductModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQAddNewProductModel.h; sourceTree = "<group>"; };
+		844A863D200B3D2B0004B0BF /* ZQAddNewProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQAddNewProductModel.m; sourceTree = "<group>"; };
+		844A8640200C977E0004B0BF /* ZQProductCategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductCategoryModel.h; sourceTree = "<group>"; };
+		844A8641200C977E0004B0BF /* ZQProductCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductCategoryModel.m; sourceTree = "<group>"; };
+		844A8643200D84C60004B0BF /* ZQViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQViewModel.h; sourceTree = "<group>"; };
+		844A8644200D84C60004B0BF /* ZQViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQViewModel.m; sourceTree = "<group>"; };
+		844A8646200DCE130004B0BF /* ZQShopCartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQShopCartCell.h; sourceTree = "<group>"; };
+		844A8647200DCE130004B0BF /* ZQShopCartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQShopCartCell.m; sourceTree = "<group>"; };
+		8452C265200F3D8C00D0AAE7 /* ZQMoneyCenterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQMoneyCenterVC.h; sourceTree = "<group>"; };
+		8452C266200F3D8C00D0AAE7 /* ZQMoneyCenterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQMoneyCenterVC.m; sourceTree = "<group>"; };
+		8452C26920102E6B00D0AAE7 /* ZQAccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQAccountModel.h; sourceTree = "<group>"; };
+		8452C26A20102E6B00D0AAE7 /* ZQAccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQAccountModel.m; sourceTree = "<group>"; };
+		8452C26C20102E7900D0AAE7 /* ZQAccountLogModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQAccountLogModel.h; sourceTree = "<group>"; };
+		8452C26D20102E7900D0AAE7 /* ZQAccountLogModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQAccountLogModel.m; sourceTree = "<group>"; };
+		8452C26F2010373900D0AAE7 /* ZQAccountLogCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQAccountLogCell.h; sourceTree = "<group>"; };
+		8452C2702010373900D0AAE7 /* ZQAccountLogCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQAccountLogCell.m; sourceTree = "<group>"; };
+		8452C2712010373900D0AAE7 /* ZQAccountLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZQAccountLogCell.xib; sourceTree = "<group>"; };
+		8452C2742010940100D0AAE7 /* ZQProductCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductCategoryCell.h; sourceTree = "<group>"; };
+		8452C2752010940100D0AAE7 /* ZQProductCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductCategoryCell.m; sourceTree = "<group>"; };
+		8452C2762010940100D0AAE7 /* ZQProductCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZQProductCategoryCell.xib; sourceTree = "<group>"; };
+		8452C2A02011D0E100D0AAE7 /* ZQOrderListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQOrderListCell.h; sourceTree = "<group>"; };
+		8452C2A12011D0E100D0AAE7 /* ZQOrderListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQOrderListCell.m; sourceTree = "<group>"; };
+		8452C2B32012C0C600D0AAE7 /* ZQOrderDetailHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQOrderDetailHeader.h; sourceTree = "<group>"; };
+		8452C2B42012C0C600D0AAE7 /* ZQOrderDetailHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQOrderDetailHeader.m; sourceTree = "<group>"; };
+		8452C2B62012C0D500D0AAE7 /* ZQOrderDetailFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQOrderDetailFooter.h; sourceTree = "<group>"; };
+		8452C2B72012C0D500D0AAE7 /* ZQOrderDetailFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQOrderDetailFooter.m; sourceTree = "<group>"; };
+		8452C2BA2012DA0400D0AAE7 /* ZQOrderDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQOrderDetailView.h; sourceTree = "<group>"; };
+		8452C2BB2012DA0400D0AAE7 /* ZQOrderDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQOrderDetailView.m; sourceTree = "<group>"; };
+		8452C2BD201314AC00D0AAE7 /* ZQOrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQOrderDetailCell.h; sourceTree = "<group>"; };
+		8452C2BE201314AC00D0AAE7 /* ZQOrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQOrderDetailCell.m; sourceTree = "<group>"; };
+		8452C2BF201314AD00D0AAE7 /* ZQOrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZQOrderDetailCell.xib; sourceTree = "<group>"; };
+		8452C2C220132E0500D0AAE7 /* ZQOrderDetailTableFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQOrderDetailTableFooter.h; sourceTree = "<group>"; };
+		8452C2C320132E0500D0AAE7 /* ZQOrderDetailTableFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQOrderDetailTableFooter.m; sourceTree = "<group>"; };
+		8452C31C2015857200D0AAE7 /* ZQShopCartHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQShopCartHeaderView.h; sourceTree = "<group>"; };
+		8452C31D2015857200D0AAE7 /* ZQShopCartHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQShopCartHeaderView.m; sourceTree = "<group>"; };
+		84A2EA7A2004689500C835CF /* ZQShoppingCartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQShoppingCartVC.h; sourceTree = "<group>"; };
+		84A2EA7B2004689500C835CF /* ZQShoppingCartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQShoppingCartVC.m; sourceTree = "<group>"; };
+		84A2EA7E20046BE600C835CF /* ZQProductListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductListVC.h; sourceTree = "<group>"; };
+		84A2EA7F20046BE600C835CF /* ZQProductListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductListVC.m; sourceTree = "<group>"; };
+		84A2EA8220046E8200C835CF /* ZQNetWorkServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQNetWorkServices.h; sourceTree = "<group>"; };
+		84A2EA8320046E8200C835CF /* ZQNetWorkServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQNetWorkServices.m; sourceTree = "<group>"; };
+		84A2EA852004A90500C835CF /* ZQProductCategoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductCategoryVC.h; sourceTree = "<group>"; };
+		84A2EA862004A90500C835CF /* ZQProductCategoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductCategoryVC.m; sourceTree = "<group>"; };
+		84A2EA892004B3FD00C835CF /* ZQScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQScrollView.h; sourceTree = "<group>"; };
+		84A2EA8A2004B3FD00C835CF /* ZQScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQScrollView.m; sourceTree = "<group>"; };
+		84A2EA8D2005A3A100C835CF /* ZQHomeMyOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQHomeMyOrderCell.h; sourceTree = "<group>"; };
+		84A2EA8E2005A3A100C835CF /* ZQHomeMyOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQHomeMyOrderCell.m; sourceTree = "<group>"; };
+		84A2EA8F2005A3A100C835CF /* ZQHomeMyOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZQHomeMyOrderCell.xib; sourceTree = "<group>"; };
+		84A2EA932005E87300C835CF /* ZQAPIURLDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQAPIURLDefines.h; sourceTree = "<group>"; };
+		84A2EA942005ED2900C835CF /* ZQParmaterDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQParmaterDefines.h; sourceTree = "<group>"; };
+		84A2EA962005F44400C835CF /* ZQMyOrderListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQMyOrderListModel.h; sourceTree = "<group>"; };
+		84A2EA972005F44400C835CF /* ZQMyOrderListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQMyOrderListModel.m; sourceTree = "<group>"; };
+		84A2EA9D2006016B00C835CF /* ZQProductDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductDetailModel.h; sourceTree = "<group>"; };
+		84A2EA9E2006016B00C835CF /* ZQProductDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductDetailModel.m; sourceTree = "<group>"; };
+		84A2EAA0200609E800C835CF /* ZQProductListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductListCell.h; sourceTree = "<group>"; };
+		84A2EAA1200609E800C835CF /* ZQProductListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductListCell.m; sourceTree = "<group>"; };
+		84A2EAA2200609E800C835CF /* ZQProductListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZQProductListCell.xib; sourceTree = "<group>"; };
+		84A2EAAC2006F51E00C835CF /* ZQTabbarModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQTabbarModel.h; sourceTree = "<group>"; };
+		84A2EAAD2006F51E00C835CF /* ZQTabbarModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQTabbarModel.m; sourceTree = "<group>"; };
+		84A2EAAF2006FB2800C835CF /* ZQLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQLoginVC.h; sourceTree = "<group>"; };
+		84A2EAB02006FB2800C835CF /* ZQLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQLoginVC.m; sourceTree = "<group>"; };
+		84A2EAB62006FC6300C835CF /* UIButton+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Category.h"; sourceTree = "<group>"; };
+		84A2EAB72006FC6300C835CF /* UIButton+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
+		84A2EABA200708B300C835CF /* ZQUserDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQUserDefault.h; sourceTree = "<group>"; };
+		84A2EABB200708B300C835CF /* ZQUserDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQUserDefault.m; sourceTree = "<group>"; };
+		84A2EABD20074DF000C835CF /* ZQProductDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductDetailView.h; sourceTree = "<group>"; };
+		84A2EABE20074DF000C835CF /* ZQProductDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductDetailView.m; sourceTree = "<group>"; };
+		84A2EAC120074E6D00C835CF /* ZQProductDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZQProductDetailVC.h; sourceTree = "<group>"; };
+		84A2EAC220074E6D00C835CF /* ZQProductDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZQProductDetailVC.m; sourceTree = "<group>"; };
+		A2DB38C8876CDFA999D3C2E2 /* libPods-SDYIphoneHotel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDYIphoneHotel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E282F81A86BE95F45C33696B /* Pods-SDYIphoneHotel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDYIphoneHotel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDYIphoneHotel/Pods-SDYIphoneHotel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +214,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B429DA4EFF3FA10CE12C6C /* libPods-SDYIphoneHotel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40EEC39ACB4CC34C8B9E4384 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2DB38C8876CDFA999D3C2E2 /* libPods-SDYIphoneHotel.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D1994EA38242DDF58F02B70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				541B5BFD548906236A42AFA2 /* Pods-SDYIphoneHotel.debug.xcconfig */,
+				E282F81A86BE95F45C33696B /* Pods-SDYIphoneHotel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8422D2DB1FF28736009C8E03 /* LoginUser */ = {
+			isa = PBXGroup;
+			children = (
+				8422D2DC1FF28753009C8E03 /* ZQLoginUser.h */,
+				8422D2DD1FF28753009C8E03 /* ZQLoginUser.m */,
+			);
+			path = LoginUser;
+			sourceTree = "<group>";
+		};
+		8422D2DF1FF288FB009C8E03 /* CostomView */ = {
+			isa = PBXGroup;
+			children = (
+				8422D2E01FF28911009C8E03 /* ZQCostomView.h */,
+				8422D2E11FF28911009C8E03 /* ZQCostomView.m */,
+				8452C2B92012D9BB00D0AAE7 /* OrderDetailView */,
+				844A8626200AE1D10004B0BF /* ProductDetailView */,
+			);
+			path = CostomView;
+			sourceTree = "<group>";
+		};
 		842E9DCC1FF1169E00DC4211 = {
 			isa = PBXGroup;
 			children = (
 				842E9DD71FF1169E00DC4211 /* SDYIphoneHotel */,
 				842E9DD61FF1169E00DC4211 /* Products */,
+				7D1994EA38242DDF58F02B70 /* Pods */,
+				40EEC39ACB4CC34C8B9E4384 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,17 +279,427 @@
 		842E9DD71FF1169E00DC4211 /* SDYIphoneHotel */ = {
 			isa = PBXGroup;
 			children = (
+				842E9DF01FF1180F00DC4211 /* Utils */,
+				842E9DEF1FF1180500DC4211 /* Services */,
+				842E9DF11FF1181600DC4211 /* Classes */,
+				842E9DEE1FF116ED00DC4211 /* Supporting Files */,
+			);
+			path = SDYIphoneHotel;
+			sourceTree = "<group>";
+		};
+		842E9DEE1FF116ED00DC4211 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				842E9DD81FF1169E00DC4211 /* AppDelegate.h */,
 				842E9DD91FF1169E00DC4211 /* AppDelegate.m */,
-				842E9DDB1FF1169E00DC4211 /* ViewController.h */,
-				842E9DDC1FF1169E00DC4211 /* ViewController.m */,
+				842E9DF51FF1188200DC4211 /* AppContext.h */,
+				842E9DF61FF1188200DC4211 /* AppContext.m */,
+				844A8643200D84C60004B0BF /* ZQViewModel.h */,
+				844A8644200D84C60004B0BF /* ZQViewModel.m */,
 				842E9DDE1FF1169E00DC4211 /* Main.storyboard */,
 				842E9DE11FF1169E00DC4211 /* Assets.xcassets */,
 				842E9DE31FF1169E00DC4211 /* LaunchScreen.storyboard */,
 				842E9DE61FF1169E00DC4211 /* Info.plist */,
 				842E9DE71FF1169E00DC4211 /* main.m */,
+				842E9E161FF11A7F00DC4211 /* PrefixHeader.pch */,
 			);
-			path = SDYIphoneHotel;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		842E9DEF1FF1180500DC4211 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EAB92007089C00C835CF /* UserDefault */,
+				8422D2DB1FF28736009C8E03 /* LoginUser */,
+				84A2EA8120046E5B00C835CF /* NetWorkService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		842E9DF01FF1180F00DC4211 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8452C311201584ED00D0AAE7 /* ThirdFile */,
+				842E9E171FF12D2700DC4211 /* Defines */,
+				842E9E211FF1351D00DC4211 /* Category */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		842E9DF11FF1181600DC4211 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				842E9DF31FF1184600DC4211 /* Models */,
+				842E9DF21FF1183500DC4211 /* Views */,
+				842E9DF41FF1184B00DC4211 /* Controllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		842E9DF21FF1183500DC4211 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EAA62006E33E00C835CF /* ViewExtension */,
+				8422D2DF1FF288FB009C8E03 /* CostomView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		842E9DF31FF1184600DC4211 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8452C26820102E1F00D0AAE7 /* AccountMoney */,
+				844A863F200C97650004B0BF /* ProductCategory */,
+				84A2EAAB2006F4FC00C835CF /* TabbarModel */,
+				84A2EA992006007000C835CF /* Porduct */,
+				84A2EA952005F41800C835CF /* MyOrder */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		842E9DF41FF1184B00DC4211 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				842E9E001FF1194A00DC4211 /* Base */,
+				842E9DFB1FF1189600DC4211 /* Home */,
+				84A2EA7520045D5100C835CF /* ProductCategory */,
+				84A2EA792004686500C835CF /* ShopCart */,
+				842E9DFE1FF118DD00DC4211 /* PersonalCenter */,
+				84A2EA7D20046B8B00C835CF /* SpecialVC */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		842E9DFB1FF1189600DC4211 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				842E9E0A1FF119CF00DC4211 /* ZQHomeVC.h */,
+				842E9E0B1FF119CF00DC4211 /* ZQHomeVC.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		842E9DFD1FF118D100DC4211 /* MyOrder */ = {
+			isa = PBXGroup;
+			children = (
+				842E9E101FF119EF00DC4211 /* ZQMyOrderVC.h */,
+				842E9E111FF119EF00DC4211 /* ZQMyOrderVC.m */,
+			);
+			path = MyOrder;
+			sourceTree = "<group>";
+		};
+		842E9DFE1FF118DD00DC4211 /* PersonalCenter */ = {
+			isa = PBXGroup;
+			children = (
+				842E9E131FF11A0500DC4211 /* ZQPersonalCenterVC.h */,
+				842E9E141FF11A0500DC4211 /* ZQPersonalCenterVC.m */,
+			);
+			path = PersonalCenter;
+			sourceTree = "<group>";
+		};
+		842E9E001FF1194A00DC4211 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				842E9E041FF1199300DC4211 /* ZQBaseNavCon.h */,
+				842E9E051FF1199300DC4211 /* ZQBaseNavCon.m */,
+				842E9E071FF119AE00DC4211 /* ZQBaseViewController.h */,
+				842E9E081FF119AE00DC4211 /* ZQBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		842E9E171FF12D2700DC4211 /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				842E9E191FF12D6F00DC4211 /* ZQDefinesHeader.h */,
+				842E9E1A1FF12DD500DC4211 /* ZQSettingDefines.h */,
+				84A2EA932005E87300C835CF /* ZQAPIURLDefines.h */,
+				842E9E1C1FF12E4300DC4211 /* ZQHelperFunction.h */,
+				842E9E1E1FF12E9300DC4211 /* ZQHelperFunction.m */,
+				842E9E1B1FF12E0E00DC4211 /* ZQNotificationNames.h */,
+				84A2EA942005ED2900C835CF /* ZQParmaterDefines.h */,
+			);
+			path = Defines;
+			sourceTree = "<group>";
+		};
+		842E9E211FF1351D00DC4211 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				842E9E221FF1355100DC4211 /* UIImage+Cagegory.h */,
+				842E9E231FF1355100DC4211 /* UIImage+Cagegory.m */,
+				842E9E271FF135AA00DC4211 /* NSObject+Category.h */,
+				842E9E281FF135AA00DC4211 /* NSObject+Category.m */,
+				842E9E291FF135AA00DC4211 /* UIView+Category.h */,
+				842E9E261FF135AA00DC4211 /* UIView+Category.m */,
+				842E9E251FF135A900DC4211 /* UIViewController+Category.h */,
+				842E9E2A1FF135AB00DC4211 /* UIViewController+Category.m */,
+				84A2EAB62006FC6300C835CF /* UIButton+Category.h */,
+				84A2EAB72006FC6300C835CF /* UIButton+Category.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		842E9E2E1FF138CC00DC4211 /* ZQLoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EAAF2006FB2800C835CF /* ZQLoginVC.h */,
+				84A2EAB02006FB2800C835CF /* ZQLoginVC.m */,
+			);
+			path = ZQLoginVC;
+			sourceTree = "<group>";
+		};
+		843725DC2015BA8B00E23517 /* ZYInputAlert */ = {
+			isa = PBXGroup;
+			children = (
+				843725DD2015BA8B00E23517 /* ZYInputAlertView.xib */,
+				843725DE2015BA8B00E23517 /* ZYInputAlertView.m */,
+				843725DF2015BA8B00E23517 /* UITextView */,
+				843725E22015BA8B00E23517 /* ZYInputAlertView.h */,
+			);
+			path = ZYInputAlert;
+			sourceTree = "<group>";
+		};
+		843725DF2015BA8B00E23517 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				843725E02015BA8B00E23517 /* UITextView+Placeholder.m */,
+				843725E12015BA8B00E23517 /* UITextView+Placeholder.h */,
+			);
+			path = UITextView;
+			sourceTree = "<group>";
+		};
+		844A8626200AE1D10004B0BF /* ProductDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				844A8627200AE27C0004B0BF /* ZQProductDetailV.h */,
+				844A8628200AE27C0004B0BF /* ZQProductDetailV.m */,
+				84A2EABD20074DF000C835CF /* ZQProductDetailView.h */,
+				84A2EABE20074DF000C835CF /* ZQProductDetailView.m */,
+			);
+			path = ProductDetailView;
+			sourceTree = "<group>";
+		};
+		844A863F200C97650004B0BF /* ProductCategory */ = {
+			isa = PBXGroup;
+			children = (
+				844A8640200C977E0004B0BF /* ZQProductCategoryModel.h */,
+				844A8641200C977E0004B0BF /* ZQProductCategoryModel.m */,
+			);
+			path = ProductCategory;
+			sourceTree = "<group>";
+		};
+		8452C264200F3D5C00D0AAE7 /* MoneyCenter */ = {
+			isa = PBXGroup;
+			children = (
+				8452C265200F3D8C00D0AAE7 /* ZQMoneyCenterVC.h */,
+				8452C266200F3D8C00D0AAE7 /* ZQMoneyCenterVC.m */,
+			);
+			path = MoneyCenter;
+			sourceTree = "<group>";
+		};
+		8452C26820102E1F00D0AAE7 /* AccountMoney */ = {
+			isa = PBXGroup;
+			children = (
+				8452C26920102E6B00D0AAE7 /* ZQAccountModel.h */,
+				8452C26A20102E6B00D0AAE7 /* ZQAccountModel.m */,
+				8452C26C20102E7900D0AAE7 /* ZQAccountLogModel.h */,
+				8452C26D20102E7900D0AAE7 /* ZQAccountLogModel.m */,
+			);
+			path = AccountMoney;
+			sourceTree = "<group>";
+		};
+		8452C2AF2012C06100D0AAE7 /* TableViewHeaderFooter */ = {
+			isa = PBXGroup;
+			children = (
+				8452C2B32012C0C600D0AAE7 /* ZQOrderDetailHeader.h */,
+				8452C2B42012C0C600D0AAE7 /* ZQOrderDetailHeader.m */,
+				8452C2B62012C0D500D0AAE7 /* ZQOrderDetailFooter.h */,
+				8452C2B72012C0D500D0AAE7 /* ZQOrderDetailFooter.m */,
+				8452C31C2015857200D0AAE7 /* ZQShopCartHeaderView.h */,
+				8452C31D2015857200D0AAE7 /* ZQShopCartHeaderView.m */,
+			);
+			path = TableViewHeaderFooter;
+			sourceTree = "<group>";
+		};
+		8452C2B92012D9BB00D0AAE7 /* OrderDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				8452C2BA2012DA0400D0AAE7 /* ZQOrderDetailView.h */,
+				8452C2BB2012DA0400D0AAE7 /* ZQOrderDetailView.m */,
+				8452C2C220132E0500D0AAE7 /* ZQOrderDetailTableFooter.h */,
+				8452C2C320132E0500D0AAE7 /* ZQOrderDetailTableFooter.m */,
+			);
+			path = OrderDetailView;
+			sourceTree = "<group>";
+		};
+		8452C311201584ED00D0AAE7 /* ThirdFile */ = {
+			isa = PBXGroup;
+			children = (
+				843725DC2015BA8B00E23517 /* ZYInputAlert */,
+			);
+			path = ThirdFile;
+			sourceTree = "<group>";
+		};
+		84A2EA7420045CAA00C835CF /* ProductListVC */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EA7E20046BE600C835CF /* ZQProductListVC.h */,
+				84A2EA7F20046BE600C835CF /* ZQProductListVC.m */,
+			);
+			path = ProductListVC;
+			sourceTree = "<group>";
+		};
+		84A2EA7520045D5100C835CF /* ProductCategory */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EA852004A90500C835CF /* ZQProductCategoryVC.h */,
+				84A2EA862004A90500C835CF /* ZQProductCategoryVC.m */,
+			);
+			path = ProductCategory;
+			sourceTree = "<group>";
+		};
+		84A2EA792004686500C835CF /* ShopCart */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EA7A2004689500C835CF /* ZQShoppingCartVC.h */,
+				84A2EA7B2004689500C835CF /* ZQShoppingCartVC.m */,
+			);
+			path = ShopCart;
+			sourceTree = "<group>";
+		};
+		84A2EA7D20046B8B00C835CF /* SpecialVC */ = {
+			isa = PBXGroup;
+			children = (
+				8452C264200F3D5C00D0AAE7 /* MoneyCenter */,
+				84A2EAC020074E4F00C835CF /* ProductDetailVC */,
+				84A2EA7420045CAA00C835CF /* ProductListVC */,
+				842E9E2E1FF138CC00DC4211 /* ZQLoginVC */,
+				842E9DFD1FF118D100DC4211 /* MyOrder */,
+			);
+			path = SpecialVC;
+			sourceTree = "<group>";
+		};
+		84A2EA8120046E5B00C835CF /* NetWorkService */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EA8220046E8200C835CF /* ZQNetWorkServices.h */,
+				84A2EA8320046E8200C835CF /* ZQNetWorkServices.m */,
+			);
+			path = NetWorkService;
+			sourceTree = "<group>";
+		};
+		84A2EA882004B3DA00C835CF /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EA892004B3FD00C835CF /* ZQScrollView.h */,
+				84A2EA8A2004B3FD00C835CF /* ZQScrollView.m */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		84A2EA8C2005A32400C835CF /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EA8D2005A3A100C835CF /* ZQHomeMyOrderCell.h */,
+				84A2EA8E2005A3A100C835CF /* ZQHomeMyOrderCell.m */,
+				84A2EA8F2005A3A100C835CF /* ZQHomeMyOrderCell.xib */,
+				84A2EAA0200609E800C835CF /* ZQProductListCell.h */,
+				84A2EAA1200609E800C835CF /* ZQProductListCell.m */,
+				84A2EAA2200609E800C835CF /* ZQProductListCell.xib */,
+				844A862A200AF10E0004B0BF /* ZQProductDetailAttributeCell.h */,
+				844A862B200AF10E0004B0BF /* ZQProductDetailAttributeCell.m */,
+				844A8646200DCE130004B0BF /* ZQShopCartCell.h */,
+				844A8647200DCE130004B0BF /* ZQShopCartCell.m */,
+				8452C26F2010373900D0AAE7 /* ZQAccountLogCell.h */,
+				8452C2702010373900D0AAE7 /* ZQAccountLogCell.m */,
+				8452C2712010373900D0AAE7 /* ZQAccountLogCell.xib */,
+				8452C2742010940100D0AAE7 /* ZQProductCategoryCell.h */,
+				8452C2752010940100D0AAE7 /* ZQProductCategoryCell.m */,
+				8452C2762010940100D0AAE7 /* ZQProductCategoryCell.xib */,
+				8452C2A02011D0E100D0AAE7 /* ZQOrderListCell.h */,
+				8452C2A12011D0E100D0AAE7 /* ZQOrderListCell.m */,
+				8452C2BD201314AC00D0AAE7 /* ZQOrderDetailCell.h */,
+				8452C2BE201314AC00D0AAE7 /* ZQOrderDetailCell.m */,
+				8452C2BF201314AD00D0AAE7 /* ZQOrderDetailCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		84A2EA952005F41800C835CF /* MyOrder */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EA962005F44400C835CF /* ZQMyOrderListModel.h */,
+				84A2EA972005F44400C835CF /* ZQMyOrderListModel.m */,
+				844A863C200B3D2B0004B0BF /* ZQAddNewProductModel.h */,
+				844A863D200B3D2B0004B0BF /* ZQAddNewProductModel.m */,
+			);
+			path = MyOrder;
+			sourceTree = "<group>";
+		};
+		84A2EA992006007000C835CF /* Porduct */ = {
+			isa = PBXGroup;
+			children = (
+				844A8639200B3B6A0004B0BF /* ZQProductModel.h */,
+				844A863A200B3B6A0004B0BF /* ZQProductModel.m */,
+				84A2EA9D2006016B00C835CF /* ZQProductDetailModel.h */,
+				84A2EA9E2006016B00C835CF /* ZQProductDetailModel.m */,
+				844A8630200B36080004B0BF /* ZQProductShopModel.h */,
+				844A8631200B36080004B0BF /* ZQProductShopModel.m */,
+				844A8633200B361A0004B0BF /* ZQProductSkusModel.h */,
+				844A8634200B361A0004B0BF /* ZQProductSkusModel.m */,
+				844A8636200B36CD0004B0BF /* ZQProductAttributeModel.h */,
+				844A8637200B36CD0004B0BF /* ZQProductAttributeModel.m */,
+			);
+			path = Porduct;
+			sourceTree = "<group>";
+		};
+		84A2EAA62006E33E00C835CF /* ViewExtension */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EAA72006E35300C835CF /* TextField */,
+				84A2EA8C2005A32400C835CF /* TableViewCell */,
+				8452C2AF2012C06100D0AAE7 /* TableViewHeaderFooter */,
+				84A2EA882004B3DA00C835CF /* ScrollView */,
+			);
+			path = ViewExtension;
+			sourceTree = "<group>";
+		};
+		84A2EAA72006E35300C835CF /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				844A85FE200838BD0004B0BF /* ZQBaseTextField.h */,
+				844A85FF200838BD0004B0BF /* ZQBaseTextField.m */,
+				844A85FB2008312F0004B0BF /* ZQQuantityTextField.h */,
+				844A85FC2008312F0004B0BF /* ZQQuantityTextField.m */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		84A2EAAB2006F4FC00C835CF /* TabbarModel */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EAAC2006F51E00C835CF /* ZQTabbarModel.h */,
+				84A2EAAD2006F51E00C835CF /* ZQTabbarModel.m */,
+			);
+			path = TabbarModel;
+			sourceTree = "<group>";
+		};
+		84A2EAB92007089C00C835CF /* UserDefault */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EABA200708B300C835CF /* ZQUserDefault.h */,
+				84A2EABB200708B300C835CF /* ZQUserDefault.m */,
+			);
+			path = UserDefault;
+			sourceTree = "<group>";
+		};
+		84A2EAC020074E4F00C835CF /* ProductDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				84A2EAC120074E6D00C835CF /* ZQProductDetailVC.h */,
+				84A2EAC220074E6D00C835CF /* ZQProductDetailVC.m */,
+			);
+			path = ProductDetailVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +709,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 842E9DEB1FF1169E00DC4211 /* Build configuration list for PBXNativeTarget "SDYIphoneHotel" */;
 			buildPhases = (
+				372AC6A2A36B215B07D3F354 /* [CP] Check Pods Manifest.lock */,
 				842E9DD11FF1169E00DC4211 /* Sources */,
 				842E9DD21FF1169E00DC4211 /* Frameworks */,
 				842E9DD31FF1169E00DC4211 /* Resources */,
+				E1DF79EEADD4B61447CC2F11 /* [CP] Embed Pods Frameworks */,
+				88E1BFFE7B38E9FA5A9868D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -102,7 +736,7 @@
 				TargetAttributes = {
 					842E9DD41FF1169E00DC4211 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -129,22 +763,136 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843725E32015BA8B00E23517 /* ZYInputAlertView.xib in Resources */,
+				8452C2C1201314AD00D0AAE7 /* ZQOrderDetailCell.xib in Resources */,
+				84A2EA912005A3A100C835CF /* ZQHomeMyOrderCell.xib in Resources */,
+				8452C2782010940100D0AAE7 /* ZQProductCategoryCell.xib in Resources */,
+				8452C2732010373900D0AAE7 /* ZQAccountLogCell.xib in Resources */,
 				842E9DE51FF1169E00DC4211 /* LaunchScreen.storyboard in Resources */,
 				842E9DE21FF1169E00DC4211 /* Assets.xcassets in Resources */,
+				84A2EAA4200609E800C835CF /* ZQProductListCell.xib in Resources */,
 				842E9DE01FF1169E00DC4211 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		372AC6A2A36B215B07D3F354 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SDYIphoneHotel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88E1BFFE7B38E9FA5A9868D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SDYIphoneHotel/Pods-SDYIphoneHotel-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDYIphoneHotel/Pods-SDYIphoneHotel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1DF79EEADD4B61447CC2F11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDYIphoneHotel/Pods-SDYIphoneHotel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		842E9DD11FF1169E00DC4211 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842E9DDD1FF1169E00DC4211 /* ViewController.m in Sources */,
+				844A863E200B3D2B0004B0BF /* ZQAddNewProductModel.m in Sources */,
+				842E9E091FF119AE00DC4211 /* ZQBaseViewController.m in Sources */,
+				844A8642200C977E0004B0BF /* ZQProductCategoryModel.m in Sources */,
+				842E9E2C1FF135AB00DC4211 /* NSObject+Category.m in Sources */,
+				844A8632200B36080004B0BF /* ZQProductShopModel.m in Sources */,
+				842E9E0C1FF119CF00DC4211 /* ZQHomeVC.m in Sources */,
+				843725E42015BA8B00E23517 /* ZYInputAlertView.m in Sources */,
+				842E9DF71FF1188200DC4211 /* AppContext.m in Sources */,
+				8452C2BC2012DA0400D0AAE7 /* ZQOrderDetailView.m in Sources */,
+				8452C2722010373900D0AAE7 /* ZQAccountLogCell.m in Sources */,
 				842E9DE81FF1169E00DC4211 /* main.m in Sources */,
 				842E9DDA1FF1169E00DC4211 /* AppDelegate.m in Sources */,
+				84A2EA8020046BE600C835CF /* ZQProductListVC.m in Sources */,
+				842E9E1F1FF12E9400DC4211 /* ZQHelperFunction.m in Sources */,
+				84A2EAB82006FC6300C835CF /* UIButton+Category.m in Sources */,
+				843725E52015BA8B00E23517 /* UITextView+Placeholder.m in Sources */,
+				84A2EABF20074DF000C835CF /* ZQProductDetailView.m in Sources */,
+				842E9E121FF119EF00DC4211 /* ZQMyOrderVC.m in Sources */,
+				8452C2B82012C0D500D0AAE7 /* ZQOrderDetailFooter.m in Sources */,
+				8452C2A22011D0E100D0AAE7 /* ZQOrderListCell.m in Sources */,
+				84A2EA872004A90500C835CF /* ZQProductCategoryVC.m in Sources */,
+				84A2EAB12006FB2800C835CF /* ZQLoginVC.m in Sources */,
+				8452C31E2015857200D0AAE7 /* ZQShopCartHeaderView.m in Sources */,
+				8452C2B52012C0C600D0AAE7 /* ZQOrderDetailHeader.m in Sources */,
+				842E9E2B1FF135AB00DC4211 /* UIView+Category.m in Sources */,
+				842E9E061FF1199300DC4211 /* ZQBaseNavCon.m in Sources */,
+				844A863B200B3B6A0004B0BF /* ZQProductModel.m in Sources */,
+				844A8635200B361A0004B0BF /* ZQProductSkusModel.m in Sources */,
+				8452C2C0201314AD00D0AAE7 /* ZQOrderDetailCell.m in Sources */,
+				844A85FD2008312F0004B0BF /* ZQQuantityTextField.m in Sources */,
+				842E9E151FF11A0500DC4211 /* ZQPersonalCenterVC.m in Sources */,
+				8452C2772010940100D0AAE7 /* ZQProductCategoryCell.m in Sources */,
+				842E9E2D1FF135AB00DC4211 /* UIViewController+Category.m in Sources */,
+				84A2EA8B2004B3FD00C835CF /* ZQScrollView.m in Sources */,
+				84A2EA8420046E8200C835CF /* ZQNetWorkServices.m in Sources */,
+				8422D2E21FF28911009C8E03 /* ZQCostomView.m in Sources */,
+				844A862C200AF10E0004B0BF /* ZQProductDetailAttributeCell.m in Sources */,
+				8452C26E20102E7900D0AAE7 /* ZQAccountLogModel.m in Sources */,
+				84A2EAC320074E6D00C835CF /* ZQProductDetailVC.m in Sources */,
+				84A2EAAE2006F51E00C835CF /* ZQTabbarModel.m in Sources */,
+				84A2EA902005A3A100C835CF /* ZQHomeMyOrderCell.m in Sources */,
+				844A8648200DCE130004B0BF /* ZQShopCartCell.m in Sources */,
+				844A8645200D84C60004B0BF /* ZQViewModel.m in Sources */,
+				8452C26B20102E6B00D0AAE7 /* ZQAccountModel.m in Sources */,
+				8422D2DE1FF28753009C8E03 /* ZQLoginUser.m in Sources */,
+				8452C267200F3D8C00D0AAE7 /* ZQMoneyCenterVC.m in Sources */,
+				84A2EA982005F44400C835CF /* ZQMyOrderListModel.m in Sources */,
+				842E9E241FF1355100DC4211 /* UIImage+Cagegory.m in Sources */,
+				844A8638200B36CD0004B0BF /* ZQProductAttributeModel.m in Sources */,
+				84A2EA7C2004689500C835CF /* ZQShoppingCartVC.m in Sources */,
+				8452C2C420132E0500D0AAE7 /* ZQOrderDetailTableFooter.m in Sources */,
+				84A2EABC200708B300C835CF /* ZQUserDefault.m in Sources */,
+				84A2EAA3200609E800C835CF /* ZQProductListCell.m in Sources */,
+				84A2EA9F2006016B00C835CF /* ZQProductDetailModel.m in Sources */,
+				844A8629200AE27C0004B0BF /* ZQProductDetailV.m in Sources */,
+				844A8600200838BD0004B0BF /* ZQBaseTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +947,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Henan Sandao Information Technology Consulting Co., Ltd. (NZQBA6S5T3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -218,7 +966,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -254,7 +1002,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Henan Sandao Information Technology Consulting Co., Ltd. (NZQBA6S5T3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -267,7 +1015,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -276,26 +1024,44 @@
 		};
 		842E9DEC1FF1169E00DC4211 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 541B5BFD548906236A42AFA2 /* Pods-SDYIphoneHotel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SDYIphoneHotel/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Henan Sandao Information Technology Consulting Co., Ltd. (NZQBA6S5T3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Henan Sandao Information Technology Consulting Co., Ltd. (NZQBA6S5T3)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NZQBA6S5T3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SDYIphoneHotel/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/SDYIphoneHotel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SanDaoyi.SDYIphoneHotel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3daoyi.ytgy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7b90adcd-8462-4719-bc57-2691d13df5d8";
+				PROVISIONING_PROFILE_SPECIFIER = YTGYDestribution;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		842E9DED1FF1169E00DC4211 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E282F81A86BE95F45C33696B /* Pods-SDYIphoneHotel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SDYIphoneHotel/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Henan Sandao Information Technology Consulting Co., Ltd. (NZQBA6S5T3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Henan Sandao Information Technology Consulting Co., Ltd. (NZQBA6S5T3)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NZQBA6S5T3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SDYIphoneHotel/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/SDYIphoneHotel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SanDaoyi.SDYIphoneHotel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3daoyi.ytgy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7b90adcd-8462-4719-bc57-2691d13df5d8";
+				PROVISIONING_PROFILE_SPECIFIER = YTGYDestribution;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

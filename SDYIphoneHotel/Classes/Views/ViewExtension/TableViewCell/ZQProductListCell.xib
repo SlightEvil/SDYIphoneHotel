@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialRoundedMTBold.ttf">
+            <string>ArialRoundedMTBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ZQProductListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lh0-6C-iBR">
+                        <rect key="frame" x="10" y="5" width="70" height="69.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="TpY-M4-fN2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商场价" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbQ-PQ-L5j">
+                        <rect key="frame" x="90" y="48" width="105" height="26.5"/>
+                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市场jia" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeY-A5-b6X">
+                        <rect key="frame" x="205" y="47.5" width="105" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVa-za-BLb">
+                        <rect key="frame" x="90" y="16" width="204" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="NbQ-PQ-L5j" secondAttribute="bottom" constant="5" id="1EX-br-Wyy"/>
+                    <constraint firstItem="eVa-za-BLb" firstAttribute="height" secondItem="aeY-A5-b6X" secondAttribute="height" id="CMN-7o-QWl"/>
+                    <constraint firstItem="aeY-A5-b6X" firstAttribute="leading" secondItem="NbQ-PQ-L5j" secondAttribute="trailing" constant="10" id="I5T-5Q-8dl"/>
+                    <constraint firstItem="lh0-6C-iBR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="IO9-Cx-wO7"/>
+                    <constraint firstItem="NbQ-PQ-L5j" firstAttribute="top" secondItem="eVa-za-BLb" secondAttribute="bottom" constant="5" id="L9N-6K-bll"/>
+                    <constraint firstItem="NbQ-PQ-L5j" firstAttribute="leading" secondItem="lh0-6C-iBR" secondAttribute="trailing" constant="10" id="PIb-wz-i0d"/>
+                    <constraint firstItem="NbQ-PQ-L5j" firstAttribute="width" secondItem="aeY-A5-b6X" secondAttribute="width" id="XLT-Cs-DQB"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eVa-za-BLb" secondAttribute="trailing" constant="10" id="Xio-jy-HQR"/>
+                    <constraint firstItem="lh0-6C-iBR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Xv3-eg-NaS"/>
+                    <constraint firstItem="NbQ-PQ-L5j" firstAttribute="top" secondItem="aeY-A5-b6X" secondAttribute="top" id="bvu-ew-aIZ"/>
+                    <constraint firstAttribute="trailing" secondItem="aeY-A5-b6X" secondAttribute="trailing" constant="10" id="dCQ-tz-x8u"/>
+                    <constraint firstItem="eVa-za-BLb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="gMo-dF-HyG"/>
+                    <constraint firstItem="eVa-za-BLb" firstAttribute="leading" secondItem="lh0-6C-iBR" secondAttribute="trailing" constant="10" id="lOL-wS-vU9"/>
+                    <constraint firstItem="eVa-za-BLb" firstAttribute="height" secondItem="NbQ-PQ-L5j" secondAttribute="height" id="lpT-V4-fB5"/>
+                    <constraint firstAttribute="bottom" secondItem="lh0-6C-iBR" secondAttribute="bottom" constant="5" id="sge-Lb-Vch"/>
+                    <constraint firstAttribute="bottom" secondItem="aeY-A5-b6X" secondAttribute="bottom" constant="5" id="zxj-CM-qVW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="productLogo" destination="lh0-6C-iBR" id="u9m-Pj-YAt"/>
+                <outlet property="productMakePrice" destination="aeY-A5-b6X" id="WFO-lp-Ckw"/>
+                <outlet property="productMallPrice" destination="NbQ-PQ-L5j" id="DxP-h6-ruf"/>
+                <outlet property="productName" destination="eVa-za-BLb" id="L3u-oU-NJX"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

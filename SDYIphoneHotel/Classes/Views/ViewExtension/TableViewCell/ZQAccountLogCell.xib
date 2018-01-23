@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ZQAccountLogCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhU-hH-Uka">
+                        <rect key="frame" x="10" y="5" width="300" height="31.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwh-4B-sXv">
+                        <rect key="frame" x="10" y="36.5" width="170" height="31.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRC-Zl-B2M">
+                        <rect key="frame" x="10" y="68" width="170" height="31"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGr-L5-jsZ">
+                        <rect key="frame" x="190" y="68" width="120" height="31"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmO-eb-Z64">
+                        <rect key="frame" x="190" y="36.5" width="120" height="31.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="I9y-Ze-4Qh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="OhU-hH-Uka" secondAttribute="trailing" constant="10" id="4XZ-SJ-y2N"/>
+                    <constraint firstItem="gRC-Zl-B2M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="A7a-1r-OM9"/>
+                    <constraint firstItem="RGr-L5-jsZ" firstAttribute="top" secondItem="QmO-eb-Z64" secondAttribute="bottom" id="BDd-SC-DXF"/>
+                    <constraint firstItem="OhU-hH-Uka" firstAttribute="height" secondItem="gwh-4B-sXv" secondAttribute="height" id="F9K-uw-9Qg"/>
+                    <constraint firstItem="QmO-eb-Z64" firstAttribute="leading" secondItem="gwh-4B-sXv" secondAttribute="trailing" constant="10" id="Gac-2v-cu6"/>
+                    <constraint firstAttribute="trailing" secondItem="RGr-L5-jsZ" secondAttribute="trailing" constant="10" id="HU8-jE-BQf"/>
+                    <constraint firstItem="gwh-4B-sXv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Lfm-R5-404"/>
+                    <constraint firstItem="gRC-Zl-B2M" firstAttribute="top" secondItem="gwh-4B-sXv" secondAttribute="bottom" id="U65-nB-oCV"/>
+                    <constraint firstItem="QmO-eb-Z64" firstAttribute="top" secondItem="OhU-hH-Uka" secondAttribute="bottom" id="VKD-iP-plA"/>
+                    <constraint firstItem="RGr-L5-jsZ" firstAttribute="leading" secondItem="gRC-Zl-B2M" secondAttribute="trailing" constant="10" id="YtZ-NM-Yh8"/>
+                    <constraint firstItem="QmO-eb-Z64" firstAttribute="width" secondItem="RGr-L5-jsZ" secondAttribute="width" id="bwA-en-0FZ"/>
+                    <constraint firstAttribute="bottom" secondItem="gRC-Zl-B2M" secondAttribute="bottom" constant="0.5" id="fCI-9w-1yn"/>
+                    <constraint firstItem="OhU-hH-Uka" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="fJh-sU-pMX"/>
+                    <constraint firstItem="OhU-hH-Uka" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="fdK-VU-keZ"/>
+                    <constraint firstAttribute="bottom" secondItem="RGr-L5-jsZ" secondAttribute="bottom" constant="0.5" id="hqN-Ne-0Q4"/>
+                    <constraint firstItem="gwh-4B-sXv" firstAttribute="height" secondItem="gRC-Zl-B2M" secondAttribute="height" id="jwI-Y4-rNX"/>
+                    <constraint firstItem="gwh-4B-sXv" firstAttribute="top" secondItem="OhU-hH-Uka" secondAttribute="bottom" id="kJr-n1-NzD"/>
+                    <constraint firstAttribute="trailing" secondItem="QmO-eb-Z64" secondAttribute="trailing" constant="10" id="vC2-nS-LDM"/>
+                    <constraint firstItem="QmO-eb-Z64" firstAttribute="height" secondItem="RGr-L5-jsZ" secondAttribute="height" id="zgR-S5-B3f"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="logBalanceLabel" destination="RGr-L5-jsZ" id="dDs-te-TeU"/>
+                <outlet property="logCreateLabel" destination="gRC-Zl-B2M" id="Utf-nL-Bie"/>
+                <outlet property="logFundLabel" destination="QmO-eb-Z64" id="fEH-iH-7wP"/>
+                <outlet property="logTitleLabel" destination="OhU-hH-Uka" id="ryu-o8-2HL"/>
+                <outlet property="logTradeNoLabel" destination="gwh-4B-sXv" id="tka-Nd-7nM"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
