@@ -8,7 +8,6 @@
 
 #import "ZQMyOrderVC.h"
 #import "ZQMyOrderListModel.h"
-#import <MJRefresh/MJRefresh.h>
 #import "ZQOrderListCell.h"
 #import "ZQOrderDetailView.h"
 
@@ -190,8 +189,8 @@ static NSString *const cellIdentifier  = @"ZQMyOrderVCCellIdentifier";
 {
     MJRefreshGifHeader *gitHeader = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshAction)];
     
-    NSArray *idleImageAry = [self IdleImageArray];
-    NSArray *pullRefreshImageAry = [self PullRefreshingImageAry];
+    NSArray *idleImageAry = self.idleImageAry;
+    NSArray *pullRefreshImageAry = self.pullImageAry;
     
     [gitHeader setImages:idleImageAry forState:MJRefreshStateIdle];
     [gitHeader setImages:pullRefreshImageAry forState:MJRefreshStatePulling];
@@ -201,28 +200,28 @@ static NSString *const cellIdentifier  = @"ZQMyOrderVCCellIdentifier";
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshAction)];
     self.orderTableView.mj_footer = footer;
 }
-
-/**  设置普通状态的动画图片 */
-- (NSArray *)IdleImageArray
-{
-    NSMutableArray *idleImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=60; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_anim__000%zd", i]];
-        [idleImages addObject:image];
-    }
-    
-    return idleImages;
-}
-/** 设置即将刷新状态的动画图片（一松开就会刷新的状态)  设置正在刷新状态的动画图片 */
-- (NSArray *)PullRefreshingImageAry
-{
-    NSMutableArray *refreshingImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=3; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
-        [refreshingImages addObject:image];
-    }
-    return refreshingImages;
-}
+//
+///**  设置普通状态的动画图片 */
+//- (NSArray *)IdleImageArray
+//{
+//    NSMutableArray *idleImages = [NSMutableArray array];
+//    for (NSUInteger i = 1; i<=60; i++) {
+//        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_anim__000%zd", i]];
+//        [idleImages addObject:image];
+//    }
+//    
+//    return idleImages;
+//}
+///** 设置即将刷新状态的动画图片（一松开就会刷新的状态)  设置正在刷新状态的动画图片 */
+//- (NSArray *)PullRefreshingImageAry
+//{
+//    NSMutableArray *refreshingImages = [NSMutableArray array];
+//    for (NSUInteger i = 1; i<=3; i++) {
+//        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
+//        [refreshingImages addObject:image];
+//    }
+//    return refreshingImages;
+//}
 
 /**
  请求订单信息 parameter pageNumber 请求的第几页 lineNumber 一页有几行  statusNumber 指定状态的订单

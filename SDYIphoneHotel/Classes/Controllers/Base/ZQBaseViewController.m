@@ -37,6 +37,52 @@
 }
 
 
+#pragma mark - Private method
+
+/**  设置普通状态的动画图片 */
+- (NSArray *)IdleImageArray
+{
+    NSMutableArray *idleImages = [NSMutableArray array];
+    for (NSUInteger i = 1; i<=60; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_anim__000%zd", i]];
+        [idleImages addObject:image];
+    }
+    
+    return idleImages;
+}
+/** 设置即将刷新状态的动画图片（一松开就会刷新的状态)  设置正在刷新状态的动画图片 */
+- (NSArray *)PullRefreshingImageAry
+{
+    NSMutableArray *refreshingImages = [NSMutableArray array];
+    for (NSUInteger i = 1; i<=3; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
+        [refreshingImages addObject:image];
+    }
+    return refreshingImages;
+}
+
+
+#pragma mark - Getter and Setter
+
+
+- (NSArray *)idleImageAry
+{
+    if (!_idleImageAry) {
+        _idleImageAry = [self IdleImageArray];
+    }
+    return _idleImageAry;
+}
+
+- (NSArray *)pullImageAry
+{
+    if (!_pullImageAry) {
+        _pullImageAry = [self PullRefreshingImageAry];
+    }
+    return _pullImageAry;
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -81,4 +81,19 @@ static NSString *const mall_price =         @"mall_price";
 static NSString *const market_price =       @"market_price";
 
 
+
+#pragma mark - 模板
+
+/** 模板名称 */
+static NSString *const template_name  =   @"template_name";
+/** 模版编码 */
+static NSString *const template_no = @"template_no";
+/** 模板id */
+static NSString *const template_id = @"template_id";
+/** 模板描述 */
+static NSString *const template_description = @"template_description";
+
+
+
+
 #endif /* ZQParmaterDefines_h */

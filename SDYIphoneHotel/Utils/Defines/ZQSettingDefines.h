@@ -25,12 +25,21 @@
 #define kZQTitleFont      (kZQIsIphone ? 16 : 18)
 #define kZQCellFont       (kZQIsIphone ? 15 : 17)
 #define kZQDetailFont     (kZQIsIphone ? 12 : 14)
+#define kZQCellDetailFont (kZQIsIphone ? 13 : 15)
 
 #define kZQTextFieldHeight (kZQIsIphone ? 40 : 45)
+
+#pragma mark - UITableViewCell
+/** 订单模板高度 */
+#define kZQCellHeightOrderRecord   (kZQIsIphone ? 49 : 69)
+#define kZQCellHeithtOrderRecordDetail  (kZQIsIphone ? 60 : 80)
 
 
 #define kScreenWidth    CGRectGetWidth([UIScreen mainScreen].bounds)
 #define kScreenHeight   CGRectGetHeight([UIScreen mainScreen].bounds)
+
+
+#define TopWindow [UIApplication sharedApplication].keyWindow
 
 
 #pragma mark - Notification

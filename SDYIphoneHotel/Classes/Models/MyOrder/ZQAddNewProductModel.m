@@ -10,6 +10,11 @@
 
 @implementation ZQAddNewProductModel
 
++ (NSDictionary *)mj_objectClassInArray
+{
+    return @{@"details":@"ZQAddNewProductDetail"};
+}
+
 @end
 
 @implementation ZQAddNewProductDetail

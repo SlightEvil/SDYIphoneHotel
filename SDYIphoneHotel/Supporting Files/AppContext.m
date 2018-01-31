@@ -27,7 +27,8 @@ NSString *const tabbarClassStringKey = @"classString";
 single_implementation(AppContext)
 
 
-#pragma mark - 外部调用的方法
+
+#pragma mark - public medhtod
 
 - (void)showLoginVC
 {
@@ -39,14 +40,12 @@ single_implementation(AppContext)
 #pragma mark - HUD
 - (void)showSuccess:(NSString *)success dismiss:(NSTimeInterval)time
 {
-//    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showSuccessWithStatus:success];
     [SVProgressHUD dismissWithDelay:time ? time : 1.0];
 }
 
 - (void)showError:(NSString *)fail dismiss:(NSTimeInterval)time
 {
-//    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showErrorWithStatus:fail];
     [SVProgressHUD dismissWithDelay:time ? time : 1.0];
 }
@@ -91,6 +90,8 @@ single_implementation(AppContext)
     }
     return _networkServices;
 }
+
+
 
 
 @end

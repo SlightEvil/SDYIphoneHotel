@@ -189,7 +189,7 @@ single_implementation(ZQViewModel)
         [productModel.details enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSMutableDictionary *detailDic = [NSMutableDictionary dictionary];
             ZQAddNewProductDetail *detailModel = obj;
-            [detailDic setObject:detailModel.detail_id forKey:detail_id];
+            [detailDic setObject:detailModel.detail_id ? detailModel.detail_id : @"" forKey:detail_id];
             [detailDic setObject:detailModel.sku_id forKey:sku_id];
             [detailDic setObject:detailModel.product_name forKey:@"product_name"];
             [detailDic setObject:detailModel.product_id forKey:product_id];

@@ -7,10 +7,8 @@
 //
 
 #import "ZQProductListVC.h"
-#import <MJExtension/MJExtension.h>
 #import "ZQProductDetailModel.h"
 #import "ZQProductListCell.h"
-#import <MJRefresh/MJRefresh.h>
 #import "ZQProductDetailV.h"
 
 
@@ -195,20 +193,18 @@ static NSString *cellIdentifier = @"ZQProductListVCCellIdentifier";
     
     [self hideProductDetailView];
 }
-//
-//- (void)productRecordProduct:(NSString *)productID isRecord:(BOOL)isRecord
-//{
-//    [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"收藏商品 = %@",productID]];
-//    [SVProgressHUD dismissWithDelay:1.0];
-//}
 
 - (void)productRecordSuccessForIsCancelRecord:(BOOL)isCancelRecord
 {
+#pragma mark - 如果是取消收藏  则删除该收藏商品   dismiss  商品详情界面。防止商品界面一直显示，一直删除商品的index
     //如果当前界面为我的收藏
-    //如果是取消收藏  则删除该收藏商品
     if (self.productListType == ZQProductListTypeRecord) {
+        /*如果是取消收藏  则删除该收藏商品   dismiss  商品详情界面。
+         防止商品界面一直显示，一直删除商品的index
+         */
         if (isCancelRecord) {
             zq_asyncDispatchToMainQueue(^{
+                [self.productView hiddenDetailView];
                 [self.listDataSource removeObjectAtIndex:self.index];
                 [self.productTableView reloadData];
             });
@@ -408,8 +404,8 @@ static NSString *cellIdentifier = @"ZQProductListVCCellIdentifier";
 {
     MJRefreshGifHeader *gitHeader = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(mjRefreshHeaderAction)];
     
-    NSArray *idleImageAry = [self IdleImageArray];
-    NSArray *pullRefreshImageAry = [self PullRefreshingImageAry];
+    NSArray *idleImageAry = self.idleImageAry;
+    NSArray *pullRefreshImageAry = self.pullImageAry;
     
     [gitHeader setImages:idleImageAry forState:MJRefreshStateIdle];
     [gitHeader setImages:pullRefreshImageAry forState:MJRefreshStatePulling];
@@ -420,27 +416,6 @@ static NSString *cellIdentifier = @"ZQProductListVCCellIdentifier";
 //    self.productTableView.mj_footer = footer;
 }
 
-/**  设置普通状态的动画图片 */
-- (NSArray *)IdleImageArray
-{
-    NSMutableArray *idleImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=60; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_anim__000%zd", i]];
-        [idleImages addObject:image];
-    }
-    
-    return idleImages;
-}
-/** 设置即将刷新状态的动画图片（一松开就会刷新的状态)  设置正在刷新状态的动画图片 */
-- (NSArray *)PullRefreshingImageAry
-{
-    NSMutableArray *refreshingImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=3; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
-        [refreshingImages addObject:image];
-    }
-    return refreshingImages;
-}
 
 
 /** 根据来源类型设置数据 */
@@ -517,7 +492,6 @@ static NSString *cellIdentifier = @"ZQProductListVCCellIdentifier";
         _searchBar.placeholder = @"搜索商品";
         _searchBar.delegate = self;
         _searchBar.showsCancelButton = YES;
-//        _searchBar.barTintColor = [UIColor ]
         _searchBar.tintColor = [UIColor blackColor];
     }
     return _searchBar;

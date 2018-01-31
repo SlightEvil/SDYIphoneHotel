@@ -11,8 +11,6 @@
 #import "ZQNetWorkServices.h"
 
 
-
-
 FOUNDATION_EXPORT NSString *const tabbarTitleKey;
 FOUNDATION_EXPORT NSString *const tabbarImageNameKey;
 FOUNDATION_EXPORT NSString *const tabbarSelectImageKey;
@@ -23,7 +21,6 @@ FOUNDATION_EXPORT NSString *const tabbarClassStringKey;
 
 @interface AppContext : NSObject
 single_interface(AppContext)
-
 
 
 /** 登录用户信息 */

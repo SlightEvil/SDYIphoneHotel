@@ -7,8 +7,6 @@
 //
 
 #import "ZQMoneyCenterVC.h"
-#import <MJRefresh/MJRefresh.h>
-#import <MJExtension/MJExtension.h>
 #import "ZQAccountModel.h"
 #import "ZQAccountLogModel.h"
 #import "ZQAccountLogCell.h"
@@ -253,41 +251,15 @@ static NSString *const cellIdentifier = @"ZQMoneyCenterVCCellIdentifier";
 - (void)setupHeaderFooterRefresh
 {
     MJRefreshGifHeader *gitHeader = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(mjRefreshHeaderAction)];
-    
-    NSArray *idleImageAry = [self IdleImageArray];
-    NSArray *pullRefreshImageAry = [self PullRefreshingImageAry];
-    
-    [gitHeader setImages:idleImageAry forState:MJRefreshStateIdle];
-    [gitHeader setImages:pullRefreshImageAry forState:MJRefreshStatePulling];
-    [gitHeader setImages:pullRefreshImageAry forState:MJRefreshStateRefreshing];
+
+    [gitHeader setImages:self.idleImageAry forState:MJRefreshStateIdle];
+    [gitHeader setImages:self.pullImageAry forState:MJRefreshStatePulling];
+    [gitHeader setImages:self.pullImageAry forState:MJRefreshStateRefreshing];
     self.accountTableView.mj_header = gitHeader;
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(mjRefreshFooterAction)];
     self.accountTableView.mj_footer = footer;
 }
-
-/**  设置普通状态的动画图片 */
-- (NSArray *)IdleImageArray
-{
-    NSMutableArray *idleImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=60; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_anim__000%zd", i]];
-        [idleImages addObject:image];
-    }
-    
-    return idleImages;
-}
-/** 设置即将刷新状态的动画图片（一松开就会刷新的状态)  设置正在刷新状态的动画图片 */
-- (NSArray *)PullRefreshingImageAry
-{
-    NSMutableArray *refreshingImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<=3; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
-        [refreshingImages addObject:image];
-    }
-    return refreshingImages;
-}
-
 
 #pragma mark - 网络请求
 

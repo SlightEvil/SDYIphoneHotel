@@ -60,7 +60,6 @@
 }
 
 
-
 #pragma mark - Event response
 
 - (void)blakcViewClick:(UITapGestureRecognizer *)sender

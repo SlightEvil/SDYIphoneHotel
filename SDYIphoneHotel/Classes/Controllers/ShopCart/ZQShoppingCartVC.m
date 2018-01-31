@@ -7,16 +7,21 @@
 //
 
 #import "ZQShoppingCartVC.h"
+#import "UIImage+Cagegory.h"
 #import "ZQAddNewProductModel.h"
 #import "ZQShopCartCell.h"
 #import "ZQShopCartHeaderView.h"
 #import "ZYInputAlertView.h"//弹出输入框
+#import "ZQPickerView.h"
+#import "ZQOrderRecordModel.h"
+#import "ZQAddNewOrderRecordV.h"
+
 
 
 static NSString *const ZQShoppingCartVCCellIdentifier = @"ZQShoppingCartVCCellIdentifier";
 static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHeaderIdentifier";
 
-@interface ZQShoppingCartVC ()<UITableViewDelegate,UITableViewDataSource,ZQShopCartCellDelegate,ZQShopCartHeaderViewDelegate>
+@interface ZQShoppingCartVC ()<UITableViewDelegate,UITableViewDataSource,ZQShopCartCellDelegate,ZQShopCartHeaderViewDelegate,ZQAddNewOrderRecordVDelegate>
 
 /** 购物车 list */
 @property (nonatomic) UITableView *tableView;
@@ -33,8 +38,20 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
 /** 下单 */
 @property (nonatomic) UIButton *downOrderBtn;
 
+/** 添加商品到订单模板 */
+@property (nonatomic) UIButton *addToOrderRecord;
+/** 是否添加到订单模板 */
+@property (nonatomic, assign) BOOL isAddOrderReocrd;
+
+/** 模板的名称 */
+@property (nonatomic) UILabel *orderRecordNameLabel;
+
+/** 选择订单模板 */
+@property (nonatomic) ZQPickerView *pickerView;
 /** 弹出输入框 */
 @property (nonatomic) ZYInputAlertView *alertView;
+/** 弹出 新增订单模板 */
+@property (nonatomic) ZQAddNewOrderRecordV *addNewOrderRecord;
 
 @end
 
@@ -77,6 +94,7 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
     }
 }
 
+
 #pragma mark - Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,18 +124,6 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-//    UILabel *label = [UILabel new];
-//    label.backgroundColor = [UIColor whiteColor];
-//    label.textColor = [UIColor blackColor];
-//    label.font = [UIFont fontWithName:kZQFontNameBold size:kZQTitleFont];
-//
-//    if (ViewModel.shopCartDataSource.count > 0) {
-//        ZQAddNewProductModel *sectionModel = ViewModel.shopCartDataSource[section];
-//        label.text = [NSString stringWithFormat:@"  %@",sectionModel.shop_name];
-//    }
-//    return label;
-    
-    
     ZQShopCartHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ZQShoppingCartVCHeaderIdentifier];
     header.index = section;
     header.delegate = self;
@@ -146,8 +152,10 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
     return cell;
 }
 
-#pragma mark - 自定义 cell的代理实现
+#pragma mark - Other Delegate
 
+#pragma mark - 自定义 cell的代理实现
+/** 自定义 cell的代理实现 */
 /**
  商品数量发生改变 quantity 新的数量  indexpath 指定元素下标
  
@@ -190,7 +198,19 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
     [alertView show];
 }
 
+#pragma mark - 新增订单模板 代理实现
 
+/**
+ 新增 订单模板的 callback
+
+ @param nameStr name
+ @param describeStr 描述
+ */
+- (void)confirmButtonClickAction:(NSString *)nameStr describe:(NSString *)describeStr
+{
+    self.orderRecordNameLabel.text = nameStr;
+    self.isAddOrderReocrd = YES;
+}
 
 #pragma mark - Event response
 /** 购物车商品个数的通知 */
@@ -234,6 +254,7 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
         [ViewModel clearShopCartProduct];
         [self.tableView reloadData];
         [self hiddeTableView:YES];
+        [self clearData];
     });
 }
 /** 下单 */
@@ -241,6 +262,52 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
 {
     NSString *jsonStr = [ViewModel addNewOrderContent];
     [self requestAddNewOrderWithContent:jsonStr];
+}
+
+/** 添加购物车数据到订单模板 */
+- (void)addToOrderRecordBtnClick
+{
+    if (self.isAddOrderReocrd) {
+        self.isAddOrderReocrd = NO;
+        self.orderRecordNameLabel.text = @"";
+        return;
+    }
+    
+    __weak typeof(self)weakSelf = self;
+    __strong typeof(weakSelf)strongSelf = weakSelf;
+    
+    [AppCT.networkServices GET:kAPIURLOrderRecordList parameter:@{} success:^(NSDictionary *dictionary) {
+        
+        NSInteger requestStatus = [dictionary[status] integerValue];
+        if (requestStatus != 0) {
+            [SVProgressHUD showErrorWithStatus:dictionary[message]];
+            [SVProgressHUD dismissWithDelay:1.0];
+            return ;
+        }
+        
+        NSArray *orderRecordAry = dictionary[@"data"];
+        NSMutableArray *array = [NSMutableArray array];
+        if (orderRecordAry.count > 0) {
+            
+            [orderRecordAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQOrderRecordModel *model = [ZQOrderRecordModel mj_objectWithKeyValues:obj];
+                [array addObject:model];
+            }];
+        
+            ZQPickerView *pickerView = [ZQPickerView new];
+            pickerView.dataSource = array;
+            [pickerView comfirmClickBlock:^(NSString *name) {
+                strongSelf.orderRecordNameLabel.text = name;
+                strongSelf.isAddOrderReocrd = YES;
+            }];
+            [pickerView show];
+        } else {
+            [strongSelf.addNewOrderRecord show];
+        }
+
+    } fail:^(NSString *errorDescription) {
+        
+    }];
 }
 
 
@@ -255,6 +322,8 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
     [self.view addSubview:self.clearBtn];
     [self.view addSubview:self.totalPriceLabel];
     [self.view addSubview:self.downOrderBtn];
+    [self.view addSubview:self.addToOrderRecord];
+    [self.view addSubview:self.orderRecordNameLabel];
 }
 
 - (void)layoutWithAuto
@@ -264,10 +333,10 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
             make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
             make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
             make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
-            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(-44);
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(-84);
         } else {
             make.top.left.right.equalTo(self.view);
-            make.bottom.equalTo(self.view).mas_offset(-44);
+            make.bottom.equalTo(self.view).mas_offset(-84);
         }
     }];
     [self.toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -287,6 +356,31 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
         make.centerY.equalTo(self.view.mas_centerY);
     }];
     
+    [self.addToOrderRecord mas_makeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+            make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft).mas_offset(10);
+//            make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight).mas_offset(-40);
+        } else {
+            make.left.equalTo(self.view).mas_offset(10);
+//            make.right.equalTo(self.view).mas_offset(-40);
+        }
+        make.top.equalTo(self.tableView.mas_bottom).mas_offset(5);
+        make.height.mas_equalTo(40);
+    }];
+    
+    [self.orderRecordNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+            make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight).mas_offset(-10);
+        } else {
+            make.right.equalTo(self.view).mas_offset(-10);
+        }
+        make.top.bottom.width.equalTo(self.addToOrderRecord);
+        make.left.equalTo(self.addToOrderRecord.mas_right).mas_offset(20);
+    }];
+    [self.addToOrderRecord mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.orderRecordNameLabel);
+    }];
+
     [self.clearBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         if (@available(iOS 11.0, *)) {
             make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft).mas_offset(10);
@@ -295,19 +389,21 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
             make.left.equalTo(self.view).mas_offset(10);
             make.bottom.equalTo(self.view).mas_offset(-5);
         }
-        make.top.equalTo(self.tableView.mas_bottom).mas_offset(5);
-        make.width.mas_equalTo(80);
+        make.top.equalTo(self.addToOrderRecord.mas_bottom).mas_offset(5);
+        
+        make.width.mas_equalTo(60);
     }];
     [self.downOrderBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tableView.mas_bottom).mas_offset(1);
+        make.top.equalTo(self.addToOrderRecord.mas_bottom).mas_offset(1);
         if (@available(iOS 11.0, *)) {
             make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(1);
         } else {
             make.bottom.equalTo(self.view).mas_offset(1);
         }
         make.right.equalTo(self.tableView);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(90);
     }];
+    
     [self.totalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self.downOrderBtn);
         make.left.equalTo(self.clearBtn.mas_right).mas_offset(20);
@@ -322,10 +418,20 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
  */
 - (void)requestAddNewOrderWithContent:(NSString *)contentStr
 {
-    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{content:contentStr}];
+    //是否添加单品到订单模板
+    if (self.isAddOrderReocrd) {
+        /*
+         set    string    否    是否创建模版。1为创建，留空或其它则忽略。  只要包含模板信息，必须传set  为 1
+         template    string    否    模版名称
+         */
+        [dic setObject:@"1" forKey:@"set"];
+        [dic setObject:self.orderRecordNameLabel.text forKey:@"template"];
+    }
+
     __weak typeof(self)weakSelf = self;
     __strong  typeof(weakSelf)strongSelf = weakSelf;
-    [AppCT.networkServices POST:kAPIURLAddNewOrder parameter:@{content:contentStr} success:^(NSDictionary *dictionary) {
+    [AppCT.networkServices POST:kAPIURLAddNewOrder parameter:dic success:^(NSDictionary *dictionary) {
         
         NSInteger requestStatus = [dictionary[status] integerValue];
         if (requestStatus != 0) {
@@ -350,13 +456,36 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
  */
 - (void)hiddeTableView:(BOOL)isHidden
 {
-    self.tableView.hidden = self.clearBtn.hidden = self.totalPriceLabel.hidden = self.downOrderBtn.hidden = self.toolBar.hidden = isHidden;
+    self.tableView.hidden = self.clearBtn.hidden = self.totalPriceLabel.hidden = self.downOrderBtn.hidden = self.toolBar.hidden = self.addToOrderRecord.hidden = self.orderRecordNameLabel.hidden = isHidden;
     self.label.hidden = !isHidden;
+}
+
+/** 清除数据 */
+- (void)clearData
+{
+    self.isAddOrderReocrd = NO;
+    [self.addToOrderRecord setImage:[UIImage sizeImageWithImage:[UIImage imageNamed:@"icon_record"] sizs:CGSizeMake(30, 30)] forState:UIControlStateNormal];
+    self.orderRecordNameLabel.text = @"";
+}
+
+#pragma mark - Dealloc
+
+- (void)dealloc
+{
+    [_addToOrderRecord setImage:[UIImage sizeImageWithImage:[UIImage imageNamed:@"icon_record"] sizs:CGSizeMake(30, 30)] forState:UIControlStateNormal];
+    _isAddOrderReocrd = NO;
 }
 
 
 
 #pragma mark - Getter and Setter
+
+- (void)setIsAddOrderReocrd:(BOOL)isAddOrderReocrd
+{
+    _isAddOrderReocrd = isAddOrderReocrd;
+    
+    [self.addToOrderRecord setImage:[UIImage sizeImageWithImage:[UIImage imageNamed:(_isAddOrderReocrd ? @"icon_record_select":@"icon_record")] sizs:CGSizeMake(30, 30)] forState:UIControlStateNormal];
+}
 
 - (UITableView *)tableView
 {
@@ -391,6 +520,30 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
     return _toolBar;
 }
 
+- (UIButton *)addToOrderRecord
+{
+    if (!_addToOrderRecord) {
+        _addToOrderRecord = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_addToOrderRecord setTitle:@"添加到订单模板" forState:UIControlStateNormal];
+        [_addToOrderRecord setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _addToOrderRecord.titleLabel.font = [UIFont boldSystemFontOfSize:kZQCellFont];
+        [_addToOrderRecord addTarget:self action:@selector(addToOrderRecordBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _addToOrderRecord.backgroundColor = [UIColor whiteColor];
+        
+        [_addToOrderRecord setImage:[UIImage sizeImageWithImage:[UIImage imageNamed:@"icon_record"] sizs:CGSizeMake(30, 30)] forState:UIControlStateNormal];
+    }
+    return _addToOrderRecord;
+}
+
+- (UILabel *)orderRecordNameLabel
+{
+    if (!_orderRecordNameLabel) {
+        _orderRecordNameLabel = [UILabel new];
+        _orderRecordNameLabel.font = [UIFont fontWithName:kZQFontNameBold size:kZQCellFont];
+    }
+    return _orderRecordNameLabel;
+}
+
 - (UIButton *)clearBtn
 {
     if (!_clearBtn) {
@@ -420,7 +573,8 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
 {
     if (!_totalPriceLabel) {
         _totalPriceLabel = [[UILabel alloc]init];
-        _totalPriceLabel.font = [UIFont fontWithName:kZQFontNameBold size:kZQTitleFont];
+        _totalPriceLabel.font = [UIFont fontWithName:kZQFontNameBold size:kZQCellFont];
+        _totalPriceLabel.numberOfLines = 2;
         _totalPriceLabel.backgroundColor = [UIColor whiteColor];
         _totalPriceLabel.text = @"总计:¥0.00元";
     }
@@ -433,6 +587,16 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
         _alertView = [ZYInputAlertView alertView];
     }
     return _alertView;
+}
+
+- (ZQAddNewOrderRecordV *)addNewOrderRecord
+{
+    if (!_addNewOrderRecord) {
+        _addNewOrderRecord = [[ZQAddNewOrderRecordV alloc] init];
+        _addNewOrderRecord.delegate = self;
+        _addNewOrderRecord.isNeedDescribe = NO;//设置不需要描述
+    }
+    return _addNewOrderRecord;
 }
 
 

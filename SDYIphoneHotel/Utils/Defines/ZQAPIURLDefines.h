@@ -18,8 +18,11 @@
 #define kSDYNetWorkReachabilityUrl     @"http://api.origin.3daoyi.com/"
 #define kSDYNetWorkBaiduUrl         @"https://www.baidu.com"
 
-/** 三道易API前缀URL */
+/** 三道易API前缀URL 正式版   */
 #define kSDYApiPrefixUrl      @"http://api.origin.3daoyi.com/index.php?"
+
+/** 三道易API前缀URL 测试版   */
+//#define kSDYApiPrefixUrl      @"http://dev.api.origin.3daoyi.com/index.php?"
 
 #pragma mark - POST
 
@@ -55,6 +58,17 @@
 #define kAPIURLUpdateOrder kStrAppendStr(kSDYApiPrefixUrl,@"s=shop&m=order&a=update")
 //@"http://api.origin.3daoyi.com/index.php?s=shop&m=order&a=update"
 
+/** 创建新的订单模板 */
+#define kAPIURLAddNewOrderRecord    kStrAppendStr(kSDYApiPrefixUrl,@"s=shop&m=order&a=create_template")
+//http://api.origin.3daoyi.com/index.php?s=shop&m=order&a=create_template
+
+/** 添加单品到订单模板 */
+#define kAPIURLAddSKUIDToOrderRecord    kStrAppendStr(kSDYApiPrefixUrl,@"s=shop&m=order&a=add_to_template")
+//http://api.origin.3daoyi.com/index.php?s=shop&m=order&a=add_to_template
+
+/** 更新订单模板 */
+#define kAPIURLUpdateOrderRecord    kStrAppendStr(kSDYApiPrefixUrl,@"s=shop&m=order&a=update_template")
+//http://api.origin.3daoyi.com/index.php?s=shop&m=order&a=update_template
 
 #pragma mark GET
 /** 订单列表 */
@@ -104,5 +118,22 @@
 /** 退出登录 */
 #define kAPIURLLoginOut     kStrAppendStr(kSDYApiPrefixUrl,@"s=common&m=user&a=loginout&uid=1")
 //http://api.origin.3daoyi.com/index.php?s=common&m=user&a=loginout&uid=1
+
+/** 订单模板列表 */
+#define kAPIURLOrderRecordList  kStrAppendStr(kSDYApiPrefixUrl,@"s=shop&m=order&a=template")
+//http://api.origin.3daoyi.com/index.php?s=shop&m=order&a=template
+
+/** 订单模板详情列表 */
+#define kAPIURLOrderRecordDetailList    kStrAppendStr(kSDYApiPrefixUrl,@"s=shop&m=order&a=template_detail")
+//http://api.origin.3daoyi.com/index.php?s=shop&m=order&a=template_detail
+
+/** 从订单模板书删除单品 */
+#define kAPIURLDeleteSKUIDToOrderRecord kStrAppendStr(kSDYApiPrefixUrl,@"s=shop&m=order&a=delete_from_template")
+//http://api.origin.3daoyi.com/index.php?s=shop&m=order&a=delete_from_template
+
+/** 删除订单模板列表 */
+#define kAPIURLDeleteOrderRecord    kStrAppendStr(kSDYApiPrefixUrl,@"s=shop&m=order&a=delete_template")
+//http://api.origin.3daoyi.com/index.php?s=shop&m=order&a=delete_template
+
 
 #endif /* ZQAPIURLDefines_h */

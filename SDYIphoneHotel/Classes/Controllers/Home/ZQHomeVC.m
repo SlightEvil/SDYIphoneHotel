@@ -10,7 +10,7 @@
 #import "ZQProductListVC.h"
 #import "ZQHomeMyOrderCell.h"
 #import "ZQMyOrderVC.h"
-
+#import "ZQOrderRecordVC.h"
 
 
 
@@ -128,6 +128,7 @@ static NSString *const ZQHomeVCOrderCellIdentifier = @"ZQHomeVCOrderCellIdentifi
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [self cellSelectCategoty];
@@ -182,7 +183,10 @@ static NSString *const ZQHomeVCOrderCellIdentifier = @"ZQHomeVCOrderCellIdentifi
 /** 选择商品分类 */
 - (void)cellSelectCategoty
 {
-    self.tabBarController.selectedIndex = 1;
+//    self.tabBarController.selectedIndex = 1;
+    ZQOrderRecordVC *orderRecordVC = [ZQOrderRecordVC new];
+    orderRecordVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:orderRecordVC animated:YES];
 }
 /** 我的收藏 */
 - (void)cellSelectRecord
@@ -192,7 +196,13 @@ static NSString *const ZQHomeVCOrderCellIdentifier = @"ZQHomeVCOrderCellIdentifi
     listVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:listVC animated:YES];
 }
-
+///** 订单收藏 */
+//- (void)cellOrderRecord
+//{
+//    ZQOrderRecordVC *orderRecordVC = [ZQOrderRecordVC new];
+//    orderRecordVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:orderRecordVC animated:YES];
+//}
 
 #pragma mark - Private medthod
 

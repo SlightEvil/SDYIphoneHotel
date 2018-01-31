@@ -182,8 +182,8 @@ NSString *const kQuantityNumberKey = @"self.productQuantityTextField.text";
     [self.productLogoImageView sd_setImageWithURL:[NSURL URLWithString:kSDYImageUrl(_detaiModel.thumbnail)] placeholderImage:[UIImage imageNamed:@"icon_error"]];
     self.productNameLabel.text = _detaiModel.product_name;
     self.productAttributeLabel.text = _detaiModel.attributes;
-    self.productPriceLabel.text = [NSString stringWithFormat:@"¥ %@元",_detaiModel.price];
-    self.productQuantityTextField.textQuantity = _detaiModel.quantity;
+    self.productPriceLabel.text = [NSString stringWithFormat:@"¥%@元",_detaiModel.price];
+    self.productQuantityTextField.textQuantity = [NSString stringWithFormat:@"%zd",[_detaiModel.quantity integerValue]];
     
 }
 

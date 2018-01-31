@@ -8,7 +8,7 @@
 
 #import "ZYInputAlertView.h"
 #import "UITextView+Placeholder.h"
-#define TopWindow [UIApplication sharedApplication].keyWindow
+//#define TopWindow [UIApplication sharedApplication].keyWindow
 
 @interface ZYInputAlertView ()
 

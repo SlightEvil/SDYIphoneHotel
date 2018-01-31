@@ -20,7 +20,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
     [self setupTabbar];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
 

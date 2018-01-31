@@ -20,11 +20,17 @@
 #import "ZQAddNewProductModel.h"
 #import "UIImage+Cagegory.h"
 
+/** 订单模板 */
+#import "ZQPickerView.h"
+#import "ZQOrderRecordModel.h"
+#import "ZQAddNewOrderRecordV.h"
+#import "ZQOrderRecordAddSkuModel.h"
+
 
 static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCellIdentifier";
 
 
-@interface ZQProductDetailView ()<UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource>
+@interface ZQProductDetailView ()<UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource,ZQAddNewOrderRecordVDelegate>
 
 
 /** 商品logo */
@@ -46,6 +52,8 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
 @property (nonatomic) UIButton *productRecordBtn;
 /** 加入购物车 */
 @property (nonatomic) UIButton *productAddShopCartBtn;
+/** 收藏到订单模板 */
+@property (nonatomic) UIButton *productAddOrderRecordBtn;
 
 /** 商品详情商品的信息 */
 @property (nonatomic) ZQProductModel *productModel;
@@ -62,7 +70,13 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
 
 /** 是否已收藏 */
 @property (nonatomic, assign) BOOL isRecorded;
+/** 供应商是否已关门 */
+@property (nonatomic, assign) BOOL isShopDown;
 
+/** 弹出 新增订单模板 */
+@property (nonatomic) ZQAddNewOrderRecordV *addNewOrderRecord;
+/** 添加单品model */
+@property (nonatomic) ZQOrderRecordAddSkuModel *addSkuModel;
 
 @end
 
@@ -120,7 +134,7 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
         ZQProductShopModel *shopModel = self.productModel.shops[row];
         label.text = shopModel.shop_name;
     } else {
-        label.text = @"未知";
+        label.text = @"商家已关门";
     }
     return label;
 }
@@ -209,14 +223,19 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
     return cell;
 }
 
+#pragma mark - 自定义代理
+/** 点击确定时间 nameStr 名称  describeStr 描述 */
+- (void)confirmButtonClickAction:(NSString *)nameStr describe:(NSString *)describeStr
+{
+    self.addSkuModel.template = nameStr;
+}
+
 #pragma mark - Event response
 
+/** 收藏 */
 - (void)recordBtnClick
 {
     NSString *pid = self.productModel.product.product_id;
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(productDetailViewRecordProductID:isRecord:) ]) {
-//        [self.delegate productDetailViewRecordProductID:pid isRecord:self.isRecorded];
-//    }
     __weak typeof(self)weakSelf = self;
     __strong typeof(weakSelf)strongSelf = weakSelf;
     
@@ -254,8 +273,17 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
         
     } fail:nil];
 }
+
+/** 添加商品到购物车 */
 - (void)addShopCartBtnClick
 {
+    
+    if (!self.isShopDown) {
+        [SVProgressHUD showWithStatus:@"商家歇业中..."];
+        [SVProgressHUD dismissWithDelay:1.5];
+        return;
+    }
+    
 #pragma mark - 添加新的商品 使用model ZQAddNewProductModel  ZQAddNewProductDetail
     //单品
     ZQProductSkusModel *skusModel = self.productModel.skus[self.selectCellIndex];
@@ -291,7 +319,68 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
     }
 }
 
+/** 添加单品到订单模板 */
+- (void)productAddOrderRecordBtnClick
+{
+    ZQProductSkusModel *skuModel = self.productModel.skus[self.selectCellIndex];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:self.productModel.product.product_name forKey:@"name"];
+    [dic setObject:self.productModel.product.product_id forKey:@"pid"];
+    [dic setObject:skuModel.sku_id ? :@"" forKey:@"sid"];
+    [dic setObject:self.shopModel.shop_id ? : self.productModel.product.shop_id forKey:@"shop_id"];
+    [dic setObject:self.productPrice forKey:@"price"];
+    [dic setObject:@"1" forKey:@"quantity"];
+    
+    /* 中间以英文半角 逗号 隔开 */
+    NSString *attributeName =  skuModel.attribute_names;
+    attributeName = [attributeName stringByReplacingOccurrencesOfString:@"-" withString:@","];
 
+    [dic setObject:attributeName forKey:@"attributes"];
+    [dic setObject:self.productModel.product.unit forKey:@"unit"];
+    [dic setObject:@"" forKey:@"template"];
+   
+    
+    __weak typeof(self)weakSelf = self;
+    __strong typeof(weakSelf)strongSelf = weakSelf;
+    
+    [AppCT.networkServices GET:kAPIURLOrderRecordList parameter:@{} success:^(NSDictionary *dictionary) {
+        
+        NSInteger requestStatus = [dictionary[status] integerValue];
+        if (requestStatus != 0) {
+            [SVProgressHUD showErrorWithStatus:dictionary[message]];
+            [SVProgressHUD dismissWithDelay:1.0];
+            return ;
+        }
+        
+        NSArray *orderRecordAry = dictionary[@"data"];
+        NSMutableArray *array = [NSMutableArray array];
+        
+        if (orderRecordAry.count > 0) {
+
+            [orderRecordAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQOrderRecordModel *model = [ZQOrderRecordModel mj_objectWithKeyValues:obj];
+                [array addObject:model];
+            }];
+
+            ZQPickerView *pickerView = [ZQPickerView new];
+            pickerView.dataSource = array;
+            [pickerView comfirmClickBlock:^(NSString *name) {
+        
+                [dic setObject:name forKey:@"template"];
+                [strongSelf requestAddSkuModelToOrderRecord:dic];
+            }];
+            [pickerView show];
+        } else {
+            [SVProgressHUD showWithStatus:@"请到立即下单创建订单模板"];
+            [SVProgressHUD dismissWithDelay:1.0];
+        }
+        
+    } fail:^(NSString *errorDescription) {
+        
+    }];
+
+
+}
 
 #pragma mark - Private medthod
 
@@ -305,6 +394,7 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
     
     [self addSubview:self.productRecordBtn];
     [self addSubview:self.productAddShopCartBtn];
+    [self addSubview:self.productAddOrderRecordBtn];
     
 }
 - (void)layoutWithAuto
@@ -337,9 +427,7 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
         make.left.right.height.equalTo(self.productNameLabel);
     }];
     
-    [self.productRecordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(45);
-        make.width.mas_equalTo(kScreenWidth/2-0.5);
+    [self.productAddOrderRecordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         if (@available(iOS 11.0, *)) {
             make.left.equalTo(self.mas_safeAreaLayoutGuideLeft);
             make.bottom.equalTo(self.mas_safeAreaLayoutGuideBottom);
@@ -347,6 +435,11 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
             make.bottom.equalTo(self);
             make.left.equalTo(self);
         }
+        make.height.mas_equalTo(45);
+    }];
+    [self.productRecordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.width.bottom.equalTo(self.productAddOrderRecordBtn);
+        make.left.equalTo(self.productAddOrderRecordBtn.mas_right);
     }];
     [self.productAddShopCartBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.height.width.equalTo(self.productRecordBtn);
@@ -355,6 +448,10 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
         } else {
            make.right.equalTo(self);
         };
+        make.left.equalTo(self.productRecordBtn.mas_right);
+    }];
+    [self.productAddOrderRecordBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.productAddShopCartBtn);
     }];
     
     [self.productParameterTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -426,6 +523,28 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
     return shopAry[index];
 }
 
+/**
+ 添加单品到订单模板
+
+ @param skuDic 添加单品字典
+ */
+- (void)requestAddSkuModelToOrderRecord:(NSMutableDictionary *)skuDic
+{
+    [AppCT.networkServices POST:kAPIURLAddSKUIDToOrderRecord parameter:skuDic success:^(NSDictionary *dictionary) {
+        
+        NSInteger requestStatus = [dictionary[status] integerValue];
+        if (requestStatus != 0) {
+            [SVProgressHUD showErrorWithStatus:dictionary[message]];
+            [SVProgressHUD dismissWithDelay:1.0];
+            return;
+        }
+        [SVProgressHUD showSuccessWithStatus:dictionary[message]];
+        [SVProgressHUD dismissWithDelay:1.0];
+        
+    } fail:^(NSString *errorDescription) {
+        
+    }];
+}
 
 #pragma mark - Getter and Setter
 
@@ -439,11 +558,27 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
     self.productPrice = skusModel.mall_price;
     
     NSString *shopID = self.productModel.product.shop_id;
-    self.shopModel = [self judgeShopModelWithShopID:shopID shopAry:self.productModel.shops];
+    
+#pragma mark - 如果供应商数组为0（一关门） 则崩溃
+    if (self.productModel.shops.count > 0) {
+        /*
+         判断并设置 获取到的商品属性shop id  在供应商数组里面对应的元素 来设置规格
+         */
+        self.shopModel = [self judgeShopModelWithShopID:shopID shopAry:self.productModel.shops];
+        self.isShopDown = YES;
+    } else {
+        self.isShopDown = NO;
+    }
 
     ZQProductDetailModel *productDetailModel = self.productModel.product;
     self.productNameLabel.text = productDetailModel.product_name;
     self.productShopTextField.text = productDetailModel.shop_name;
+    
+    if (self.isShopDown) {
+        self.productShopTextField.text = productDetailModel.shop_name;
+    } else {
+        self.productShopTextField.text = [NSString stringWithFormat:@"%@歇业中",productDetailModel.shop_name];
+    }
     self.productDetailTextView.text = productDetailModel.product_description;
     [self.productImageView sd_setImageWithURL:[NSURL URLWithString:kSDYImageUrl(productDetailModel.thumbnail)] placeholderImage:[UIImage imageNamed:@"icon_error"]];
     
@@ -468,7 +603,11 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
     [self.productRecordBtn setImage:[UIImage sizeImageWithImage:[UIImage imageNamed:(_isRecorded ? @"icon_record_select":@"icon_record")] sizs:CGSizeMake(30, 30)] forState:UIControlStateNormal];
 }
 
-
+- (void)setIsShopDown:(BOOL)isShopDown
+{
+    _isShopDown = isShopDown;
+    self.productShopTextField.enabled = _isShopDown;
+}
 
 - (UIImageView *)productImageView
 {
@@ -558,6 +697,7 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
         [_productRecordBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _productRecordBtn.backgroundColor = kZQRecordColor;
         [_productRecordBtn addTarget:self action:@selector(recordBtnClick) forControlEvents:UIControlEventTouchUpInside];
+         _productRecordBtn.titleLabel.font = [UIFont fontWithName:kZQFontNameBold size:kZQTitleFont];
     }
     return _productRecordBtn;
 }
@@ -569,10 +709,41 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
         [_productAddShopCartBtn setTitle:@"加入购物车" forState:UIControlStateNormal];
         [_productAddShopCartBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _productAddShopCartBtn.backgroundColor = [UIColor redColor];
+        _productAddShopCartBtn.titleLabel.font = [UIFont fontWithName:kZQFontNameBold size:kZQTitleFont];
         [_productAddShopCartBtn addTarget:self action:@selector(addShopCartBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _productAddShopCartBtn;
 }
 
+- (UIButton *)productAddOrderRecordBtn
+{
+    if (!_productAddOrderRecordBtn) {
+        _productAddOrderRecordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_productAddOrderRecordBtn setTitle:@"加入订单模板" forState:UIControlStateNormal];
+        _productAddOrderRecordBtn.titleLabel.font = [UIFont fontWithName:kZQFontNameBold size:kZQTitleFont];
+        [_productAddOrderRecordBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _productAddOrderRecordBtn.backgroundColor = kZQDetailViewTextColor;
+        [_productAddOrderRecordBtn addTarget:self action:@selector(productAddOrderRecordBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _productAddOrderRecordBtn;
+}
+
+- (ZQAddNewOrderRecordV *)addNewOrderRecord
+{
+    if (!_addNewOrderRecord) {
+        _addNewOrderRecord = [[ZQAddNewOrderRecordV alloc] init];
+        _addNewOrderRecord.delegate = self;
+        _addNewOrderRecord.isNeedDescribe = NO;//设置不需要描述
+    }
+    return _addNewOrderRecord;
+}
+
+
+
+#pragma mark - Dealloc
+- (void)dealloc
+{
+    _productShopTextField.enabled = NO;
+}
 
 @end
