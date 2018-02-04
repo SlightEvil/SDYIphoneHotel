@@ -262,10 +262,12 @@ static NSString *const cellIdentifier  = @"ZQMyOrderVCCellIdentifier";
         }
         //枚举
         NSArray *array = dictionary[@"data"];
-        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            ZQMyOrderListModel *model = [ZQMyOrderListModel mj_objectWithKeyValues:obj];
-            [dataSourceArray addObject:model];
-        }];
+        @autoreleasepool {
+            [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQMyOrderListModel *model = [ZQMyOrderListModel mj_objectWithKeyValues:obj];
+                [dataSourceArray addObject:model];
+            }];
+        }
         //DataSource重新赋值
         zq_asyncDispatchToMainQueue(^{
             strongSelf.listDataSource = dataSourceArray;

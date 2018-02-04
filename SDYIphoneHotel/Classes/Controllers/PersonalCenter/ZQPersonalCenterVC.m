@@ -175,12 +175,6 @@ static NSString *const personalFooterIdentifier = @"SDYPersonalCenterVCpersonalF
     [self.navigationController pushViewController:moneyVC animated:YES];
 }
 
-/** 我的订单 */
-- (void)cellMyOrderClick
-{
-    self.tabBarController.selectedIndex = 3;
-}
-
 #pragma mark - Private method  私有方法
 
 /** 根据登录状态设置 */

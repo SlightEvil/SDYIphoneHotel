@@ -67,6 +67,8 @@ single_implementation(AppContext)
         rootVC = [(UINavigationController *)rootVC topViewController];
     }
     return rootVC;
+    
+   
 }
 
 /** tabbar 的DataSource */

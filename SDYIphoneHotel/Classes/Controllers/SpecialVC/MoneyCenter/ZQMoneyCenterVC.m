@@ -193,10 +193,13 @@ static NSString *const cellIdentifier = @"ZQMoneyCenterVCCellIdentifier";
         
         NSMutableArray *array = dic[@"account_logs"];
         NSMutableArray *accountLogAry = [NSMutableArray array];
-        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            ZQAccountLogModel *accountLogModel = [ZQAccountLogModel mj_objectWithKeyValues:obj];
-            [accountLogAry addObject:accountLogModel];
-        }];
+        
+        @autoreleasepool {
+            [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQAccountLogModel *accountLogModel = [ZQAccountLogModel mj_objectWithKeyValues:obj];
+                [accountLogAry addObject:accountLogModel];
+            }];
+        }
         zq_asyncDispatchToMainQueue(^{
             strongSelf.accountLogAry = accountLogAry;
             strongSelf.accountModel = [ZQAccountModel mj_objectWithKeyValues:dic[@"account"]];
@@ -231,10 +234,13 @@ static NSString *const cellIdentifier = @"ZQMoneyCenterVCCellIdentifier";
         
         NSMutableArray *array = dic[@"account_logs"];
         NSMutableArray *accountLogAry = [NSMutableArray arrayWithArray:self.accountLogAry];
-        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            ZQAccountLogModel *accountLogModel = [ZQAccountLogModel mj_objectWithKeyValues:obj];
-            [accountLogAry addObject:accountLogModel];
-        }];
+        
+        @autoreleasepool {
+            [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQAccountLogModel *accountLogModel = [ZQAccountLogModel mj_objectWithKeyValues:obj];
+                [accountLogAry addObject:accountLogModel];
+            }];
+        }
         zq_asyncDispatchToMainQueue(^{
             strongSelf.accountLogAry = accountLogAry;
             strongSelf.accountModel = [ZQAccountModel mj_objectWithKeyValues:dic[@"account"]];

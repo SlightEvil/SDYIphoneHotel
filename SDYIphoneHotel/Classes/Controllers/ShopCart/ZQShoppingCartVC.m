@@ -289,11 +289,13 @@ static NSString *const ZQShoppingCartVCHeaderIdentifier = @"ZQShoppingCartVCHead
         NSMutableArray *array = [NSMutableArray array];
         if (orderRecordAry.count > 0) {
             
-            [orderRecordAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                ZQOrderRecordModel *model = [ZQOrderRecordModel mj_objectWithKeyValues:obj];
-                [array addObject:model];
-            }];
+            @autoreleasepool{
+                [orderRecordAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    ZQOrderRecordModel *model = [ZQOrderRecordModel mj_objectWithKeyValues:obj];
+                    [array addObject:model];
+                }];
         
+            }
             ZQPickerView *pickerView = [ZQPickerView new];
             pickerView.dataSource = array;
             [pickerView comfirmClickBlock:^(NSString *name) {

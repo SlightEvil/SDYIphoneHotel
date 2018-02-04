@@ -227,11 +227,12 @@ static NSString *const cellIdentifier = @"ZQOrderRecordVCCellIdentifier";
         
         NSArray *dataSource = dictionary[@"data"];
         NSMutableArray *array = [NSMutableArray array];
-        [dataSource enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            ZQOrderRecordModel *model = [ZQOrderRecordModel mj_objectWithKeyValues:obj];
-            [array addObject:model];
-        }];
-        
+        @autoreleasepool {
+            [dataSource enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQOrderRecordModel *model = [ZQOrderRecordModel mj_objectWithKeyValues:obj];
+                [array addObject:model];
+            }];
+        }
         strongSelf.orderRecordListAry = array;
     
     } fail:^(NSString *errorDescription) {

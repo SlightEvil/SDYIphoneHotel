@@ -145,6 +145,7 @@ static NSString *cellIdentifier = @"ZQProductListVCCellIdentifier";
         } else {
             //每次搜索框里面的文字开始改变的时候 都从原来藏品列表从新获取数据
             NSMutableArray *array = [NSMutableArray arrayWithArray:self.listDataSource];
+            
             [self.listDataSource enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 ZQProductDetailModel *detailModel = obj;
                 
@@ -300,12 +301,14 @@ static NSString *cellIdentifier = @"ZQProductListVCCellIdentifier";
         NSMutableArray *dataSourceAry = [NSMutableArray array];
         //存放到userdefault
         NSMutableArray *userDefaultAry = [NSMutableArray array];
-        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            ZQProductDetailModel *model = [ZQProductDetailModel mj_objectWithKeyValues:obj];
-            [dataSourceAry addObject:model];
-            [userDefaultAry addObject:model.product_id];
-        }];
         
+        @autoreleasepool {
+            [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQProductDetailModel *model = [ZQProductDetailModel mj_objectWithKeyValues:obj];
+                [dataSourceAry addObject:model];
+                [userDefaultAry addObject:model.product_id];
+            }];
+        }
         strongSelf.listDataSource = dataSourceAry;
         //保存商品id到userDefault
         [ZQUserDefault saveValue:userDefaultAry forKey:UDKRecordProductID];
@@ -361,10 +364,12 @@ static NSString *cellIdentifier = @"ZQProductListVCCellIdentifier";
         }
         
         NSMutableArray *array = [NSMutableArray array];
-        [dataAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            ZQProductDetailModel *detailModel = [ZQProductDetailModel mj_objectWithKeyValues:obj];
-            [array addObject:detailModel];
-        }];
+        @autoreleasepool {
+            [dataAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQProductDetailModel *detailModel = [ZQProductDetailModel mj_objectWithKeyValues:obj];
+                [array addObject:detailModel];
+            }];
+        }
         strongSelf.listDataSource = array;
         
     } fail:^(NSString *errorDescription) {

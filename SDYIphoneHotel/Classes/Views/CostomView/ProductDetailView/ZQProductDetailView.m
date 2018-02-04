@@ -357,10 +357,12 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
         
         if (orderRecordAry.count > 0) {
 
-            [orderRecordAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                ZQOrderRecordModel *model = [ZQOrderRecordModel mj_objectWithKeyValues:obj];
-                [array addObject:model];
-            }];
+            @autoreleasepool {
+                [orderRecordAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    ZQOrderRecordModel *model = [ZQOrderRecordModel mj_objectWithKeyValues:obj];
+                    [array addObject:model];
+                }];
+            }
 
             ZQPickerView *pickerView = [ZQPickerView new];
             pickerView.dataSource = array;
@@ -514,12 +516,15 @@ static NSString *const ZQProductDetailVCCellIdentifier = @"ZQProductDetailVCCell
 - (ZQProductShopModel *)judgeShopModelWithShopID:(NSString *)shopID shopAry:(NSArray *)shopAry
 {
     __block NSInteger index = 0;
-    [shopAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        ZQProductShopModel *shopModel = obj;
-        if (shopModel.shop_id == shopID) {
-            index = idx;
-        }
-    }];
+    
+    @autoreleasepool {
+        [shopAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            ZQProductShopModel *shopModel = obj;
+            if (shopModel.shop_id == shopID) {
+                index = idx;
+            }
+        }];
+    }
     return shopAry[index];
 }
 

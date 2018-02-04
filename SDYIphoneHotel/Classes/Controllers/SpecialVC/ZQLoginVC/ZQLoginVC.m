@@ -225,13 +225,16 @@
         NSArray *array = dictionary[@"data"];
         //存放到userdefault
         NSMutableArray *userDefaultAry = [NSMutableArray array];
-        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            NSDictionary *dic = obj;
-            [userDefaultAry addObject:dic[product_id]];
-//            ZQProductDetailModel *model = [ZQProductDetailModel mj_objectWithKeyValues:obj];
-//            [userDefaultAry addObject:model.product_id];
-        }];
+        
+        @autoreleasepool {
+            [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                NSDictionary *dic = obj;
+                [userDefaultAry addObject:dic[product_id]];
+    //            ZQProductDetailModel *model = [ZQProductDetailModel mj_objectWithKeyValues:obj];
+    //            [userDefaultAry addObject:model.product_id];
+            }];
+        }
         //保存商品id到userDefault
         [ZQUserDefault saveValue:userDefaultAry forKey:UDKRecordProductID];
             

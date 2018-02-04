@@ -216,10 +216,13 @@ static NSString *const ZQProductCategoryVCClassCellIdentifier = @"ZQProductCateg
     [AppCT.networkServices GET:kAPIURLProductCategory parameter:@{} success:^(NSDictionary *dictionary) {
                 
         NSArray *dataAry = dictionary[@"data"];
-        [dataAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            ZQProductCategoryModel *categoryModel = [ZQProductCategoryModel mj_objectWithKeyValues:obj];
-            [array addObject:categoryModel];
-        }];
+        
+        @autoreleasepool {
+            [dataAry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZQProductCategoryModel *categoryModel = [ZQProductCategoryModel mj_objectWithKeyValues:obj];
+                [array addObject:categoryModel];
+            }];
+        }
         
         ViewModel.productCategoryDataSource = array;
         [strongSelf.classCategoryTableView reloadData];
